@@ -1,16 +1,16 @@
-import styled from "@emotion/styled";
-import React from "react";
-import lightTheme from "../../styles/theme/light";
-import CopyIcon from "../common/CopyIcon/CopyIcon";
-import Identicon from "../common/Identicon/Identicon";
-import { WithIsLight } from "../../utils/typesHelpers";
-import { useThemeContext } from "../../context/ThemeContext";
-import { formatAddressForOutput } from "../../utils/strings";
+import styled from '@emotion/styled'
+import React from 'react'
+import lightTheme from '../../styles/theme/light'
+import CopyIcon from '../common/CopyIcon/CopyIcon'
+import Identicon from '../common/Identicon/Identicon'
+import { WithIsLight } from '../../utils/typesHelpers'
+import { useThemeContext } from '../../context/ThemeContext'
+import { formatAddressForOutput } from '../../utils/strings'
 
 interface TransactionWalletInfoProps {
-  name: string;
-  address: string;
-  className?: string;
+  name: string
+  address: string
+  className?: string
 }
 
 const TransactionWalletInfo: React.FC<TransactionWalletInfoProps> = ({
@@ -18,7 +18,7 @@ const TransactionWalletInfo: React.FC<TransactionWalletInfoProps> = ({
   address,
   ...props
 }) => {
-  const { isLight } = useThemeContext();
+  const { isLight } = useThemeContext()
 
   return (
     <Container {...props}>
@@ -34,90 +34,90 @@ const TransactionWalletInfo: React.FC<TransactionWalletInfoProps> = ({
             href={`https://etherscan.io/address/${address}`}
             target="_blank"
           >
-            {formatAddressForOutput(address, 6, 4, "...")}
+            {formatAddressForOutput(address, 6, 4, '...')}
           </Address>
-          <CopyIcon text={address ?? ""} defaultTooltip="Copy Address" />
+          <CopyIcon text={address ?? ''} defaultTooltip="Copy Address" />
         </AddressContainer>
       </InfoContainer>
     </Container>
-  );
-};
+  )
+}
 
-export default TransactionWalletInfo;
+export default TransactionWalletInfo
 
 const Container = styled.div({
-  display: "flex",
+  display: 'flex',
 
-  [lightTheme.breakpoints.up("desktop_1194")]: {
-    alignItems: "center",
+  [lightTheme.breakpoints.up('desktop_1194')]: {
+    alignItems: 'center',
   },
-});
+})
 
 const BlockiesContainer = styled.div({
-  width: "fit-content",
-  height: "fit-content",
-  borderRadius: "50%",
+  width: 'fit-content',
+  height: 'fit-content',
+  borderRadius: '50%',
   marginRight: 8,
   marginTop: 6,
-  overflow: "hidden",
-  background: "gray",
+  overflow: 'hidden',
+  background: 'gray',
 
-  [lightTheme.breakpoints.up("table_834")]: {
+  [lightTheme.breakpoints.up('table_834')]: {
     marginTop: 0,
     marginRight: 16,
   },
 
-  [lightTheme.breakpoints.up("desktop_1194")]: {
+  [lightTheme.breakpoints.up('desktop_1194')]: {
     marginRight: 15,
   },
-});
+})
 
 const BlockieIdenticon = styled(Identicon)({
   width: 24,
   height: 24,
   minWidth: 24,
 
-  [lightTheme.breakpoints.up("table_834")]: {
+  [lightTheme.breakpoints.up('table_834')]: {
     width: 32,
     height: 32,
   },
-});
+})
 
-const InfoContainer = styled.div({});
+const InfoContainer = styled.div({})
 
 const NameContainer = styled.div({
-  display: "flex",
-});
+  display: 'flex',
+})
 
 const Name = styled.div<WithIsLight>(({ isLight }) => ({
   fontWeight: 500,
   fontSize: 12,
-  lineHeight: "15px",
-  color: isLight ? "#231536" : "#D2D4EF",
+  lineHeight: '15px',
+  color: isLight ? '#231536' : '#D2D4EF',
   marginBottom: 4,
 
-  [lightTheme.breakpoints.up("desktop_1194")]: {
+  [lightTheme.breakpoints.up('desktop_1194')]: {
     fontSize: 16,
-    lineHeight: "22px",
+    lineHeight: '22px',
   },
-}));
+}))
 
 const AddressContainer = styled.div({
-  display: "flex",
-});
+  display: 'flex',
+})
 
 const Address = styled.a(() => ({
   fontSize: 12,
-  lineHeight: "15px",
-  color: "#447AFB",
+  lineHeight: '15px',
+  color: '#447AFB',
   marginRight: 17,
 
-  [lightTheme.breakpoints.up("table_834")]: {
+  [lightTheme.breakpoints.up('table_834')]: {
     marginRight: 4,
   },
 
-  [lightTheme.breakpoints.up("desktop_1194")]: {
+  [lightTheme.breakpoints.up('desktop_1194')]: {
     fontSize: 14,
-    lineHeight: "17px",
+    lineHeight: '17px',
   },
-}));
+}))

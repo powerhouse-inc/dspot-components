@@ -1,19 +1,19 @@
-import CUReserves from "./CUReserves";
-import type { Meta } from "@storybook/react";
-import { SnapshotAccountBalanceBuilder } from "../../builders/accountSnapshot/snapshotAccountBalanceBuilder";
-import { SnapshotAccountBuilder } from "../../builders/accountSnapshot/accountSnapshotBuilder";
-import { createThemeModeVariants } from "../../utils/storybook/factories";
+import CUReserves from './CUReserves'
+import type { Meta } from '@storybook/react'
+import { SnapshotAccountBalanceBuilder } from '../../builders/accountSnapshot/snapshotAccountBalanceBuilder'
+import { SnapshotAccountBuilder } from '../../builders/accountSnapshot/accountSnapshotBuilder'
+import { createThemeModeVariants } from '../../utils/storybook/factories'
 
 const meta: Meta<typeof CUReserves> = {
   component: CUReserves,
-};
-export default meta;
+}
+export default meta
 
 const variantsArgs = [
   {
-    snapshotOwner: "SES Core Unit",
-    startDate: "2023-05-12T22:52:54.494Z",
-    endDate: "2023-06-14T22:52:54.494Z",
+    snapshotOwner: 'SES Core Unit',
+    startDate: '2023-05-12T22:52:54.494Z',
+    endDate: '2023-06-14T22:52:54.494Z',
     balance: new SnapshotAccountBalanceBuilder()
       .withInitialBalance(1500000)
       .withNewBalance(1266680)
@@ -22,9 +22,9 @@ const variantsArgs = [
       .build(),
     onChainData: [
       new SnapshotAccountBuilder()
-        .withId("1")
-        .withAccountLabel("DSS Vest")
-        .withAccountType("group")
+        .withId('1')
+        .withAccountLabel('DSS Vest')
+        .withAccountType('group')
         .addSnapshotAccountBalance(
           new SnapshotAccountBalanceBuilder()
             .withInitialBalance(100000)
@@ -35,10 +35,10 @@ const variantsArgs = [
         )
         .build(),
       new SnapshotAccountBuilder()
-        .withId("2")
-        .withAccountLabel("Auditor")
-        .withAccountType("singular")
-        .withAccountAddress("0x23b554585a4ef8482")
+        .withId('2')
+        .withAccountLabel('Auditor')
+        .withAccountType('singular')
+        .withAccountAddress('0x23b554585a4ef8482')
         .addSnapshotAccountBalance(
           new SnapshotAccountBalanceBuilder()
             .withInitialBalance(500000)
@@ -49,9 +49,9 @@ const variantsArgs = [
         )
         .build(),
       new SnapshotAccountBuilder()
-        .withId("3")
-        .withAccountLabel("Operational")
-        .withAccountType("group")
+        .withId('3')
+        .withAccountLabel('Operational')
+        .withAccountType('group')
         .addSnapshotAccountBalance(
           new SnapshotAccountBalanceBuilder()
             .withInitialBalance(900000)
@@ -64,9 +64,9 @@ const variantsArgs = [
     ],
     offChainData: [
       new SnapshotAccountBuilder()
-        .withId("1")
-        .withAccountLabel("Payment Processor")
-        .withAccountType("group")
+        .withId('1')
+        .withAccountLabel('Payment Processor')
+        .withAccountType('group')
         .addSnapshotAccountBalance(
           new SnapshotAccountBalanceBuilder()
             .withInitialBalance(100000)
@@ -77,9 +77,9 @@ const variantsArgs = [
         )
         .build(),
       new SnapshotAccountBuilder()
-        .withId("2")
-        .withAccountLabel("Coinbase Account")
-        .withAccountType("group")
+        .withId('2')
+        .withAccountLabel('Coinbase Account')
+        .withAccountType('group')
         .addSnapshotAccountBalance(
           new SnapshotAccountBalanceBuilder()
             .withInitialBalance(900000)
@@ -91,14 +91,14 @@ const variantsArgs = [
         .build(),
     ],
   },
-];
+]
 
 const [[LightMode, DarkMode]] = createThemeModeVariants(
   CUReserves,
   variantsArgs
-);
+)
 
-export { LightMode, DarkMode };
+export { LightMode, DarkMode }
 
 // LightMode.parameters = {
 //   figma: {

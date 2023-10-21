@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react'
 import {
   buildRow,
   buildRowWithoutOffChain,
-} from "../../utils/expenseComparisonUtils";
-import { createThemeModeVariants } from "../../utils/storybook/factories";
-import { RowProps } from "../common/AdvanceTable/types";
-import ExpensesComparison from "./ExpensesComparison";
-import type { Meta } from "@storybook/react";
+} from '../../utils/expenseComparisonUtils'
+import { createThemeModeVariants } from '../../utils/storybook/factories'
+import { RowProps } from '../common/AdvanceTable/types'
+import ExpensesComparison from './ExpensesComparison'
+import type { Meta } from '@storybook/react'
 
 const meta: Meta<typeof ExpensesComparison> = {
   component: ExpensesComparison,
@@ -16,88 +16,88 @@ const meta: Meta<typeof ExpensesComparison> = {
       pauseAnimationAtEnd: true,
     },
   },
-};
-export default meta;
+}
+export default meta
 
 const rows = [
   buildRow(
     [
-      "MAY-2023",
-      "221,503.00 DAI",
-      "240,000.00 DAI",
-      "8.35%",
-      "221,504.00 DAI",
-      "0.00%",
+      'MAY-2023',
+      '221,503.00 DAI',
+      '240,000.00 DAI',
+      '8.35%',
+      '221,504.00 DAI',
+      '0.00%',
     ],
     true,
     false
   ),
   buildRow(
     [
-      "APR-2023",
-      "171,503.00 DAI",
-      "170,000.00 DAI",
-      "-0.88%",
-      "171,500,00 DAI",
-      "0.00%",
+      'APR-2023',
+      '171,503.00 DAI',
+      '170,000.00 DAI',
+      '-0.88%',
+      '171,500,00 DAI',
+      '0.00%',
     ],
     false,
     false
   ),
   buildRow(
     [
-      "MAR-2023",
-      "288,503.00 DAI",
-      "280,000.00 DAI",
-      "-2,95%",
-      "288,300.00 DAI",
-      "-0.07%",
+      'MAR-2023',
+      '288,503.00 DAI',
+      '280,000.00 DAI',
+      '-2,95%',
+      '288,300.00 DAI',
+      '-0.07%',
     ],
     false,
     false
   ),
   buildRow(
     [
-      "Totals",
-      "681,509.00 DAI",
-      "681,509.00 DAI",
-      "1.25%",
-      "681,304.25 DAI",
-      "-0.03%",
+      'Totals',
+      '681,509.00 DAI',
+      '681,509.00 DAI',
+      '1.25%',
+      '681,304.25 DAI',
+      '-0.03%',
     ],
     false,
     true
   ),
-] as RowProps[];
+] as RowProps[]
 
 const rowsWithoutOffChain = [
   buildRowWithoutOffChain(
-    ["MAY-2023", "221,503.00 DAI", "240,000.00 DAI", "8.35%"],
+    ['MAY-2023', '221,503.00 DAI', '240,000.00 DAI', '8.35%'],
     true,
     false
   ),
   buildRowWithoutOffChain(
-    ["APR-2023", "171,503.00 DAI", "170,000.00 DAI", "-0.88%"],
+    ['APR-2023', '171,503.00 DAI', '170,000.00 DAI', '-0.88%'],
     false,
     false
   ),
   buildRowWithoutOffChain(
-    ["MAR-2023", "288,503.00 DAI", "280,000.00 DAI", "-2,95%"],
+    ['MAR-2023', '288,503.00 DAI', '280,000.00 DAI', '-2,95%'],
     false,
     false
   ),
   buildRowWithoutOffChain(
-    ["Totals", "681,509.00 DAI", "681,509.00 DAI", "1.25%"],
+    ['Totals', '681,509.00 DAI', '681,509.00 DAI', '1.25%'],
     false,
     true
   ),
-] as RowProps[];
+] as RowProps[]
 
 const [[LightMode, DarkMode]] = createThemeModeVariants(
   // it is required to initialized this way due the rows has react components and they can not be serialized
   () => <ExpensesComparison hasOffChainData={true} rows={rows} />,
   [{}]
-);
+)
 
 const [[WithoutOffChainLightMode, WithoutOffChainDarkMode]] =
   createThemeModeVariants(
@@ -105,14 +105,14 @@ const [[WithoutOffChainLightMode, WithoutOffChainDarkMode]] =
       <ExpensesComparison hasOffChainData={false} rows={rowsWithoutOffChain} />
     ),
     [{}]
-  );
+  )
 
 export {
   LightMode,
   DarkMode,
   WithoutOffChainLightMode,
   WithoutOffChainDarkMode,
-};
+}
 
 // LightMode.parameters = {
 //   figma: {

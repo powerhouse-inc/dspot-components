@@ -1,31 +1,31 @@
-import React from "react";
-import { DateTime } from "luxon";
-import ExpensesComparisonRowCard from "../components/Cards/ExpensesComparisonRowCard/ExpensesComparisonRowCard";
+import React from 'react'
+import { DateTime } from 'luxon'
+import ExpensesComparisonRowCard from '../components/Cards/ExpensesComparisonRowCard/ExpensesComparisonRowCard'
 import {
   EXPENSES_COMPARISON_TABLE_HEADER,
   EXPENSES_COMPARISON_TABLE_HEADER_WITHOUT_OFF_CHAIN,
-} from "../components/ExpensesComparison/headers";
+} from '../components/ExpensesComparison/headers'
 
-import { usLocalizedNumber } from "./humanization";
-import { ActualsComparison, Token } from "../types";
-import { useThemeContext } from "../context/ThemeContext";
+import { usLocalizedNumber } from './humanization'
+import { ActualsComparison, Token } from '../types'
+import { useThemeContext } from '../context/ThemeContext'
 import {
   CardRenderProps,
   RowProps,
-} from "../components/common/AdvanceTable/types";
+} from '../components/common/AdvanceTable/types'
 
 const RenderCurrentMonthRow: React.FC<React.PropsWithChildren> = ({
   children,
 }) => {
-  const { isLight } = useThemeContext();
+  const { isLight } = useThemeContext()
   return (
     <tr
-      style={{ background: isLight ? "rgba(236, 239, 249, 0.5)" : "#283341" }}
+      style={{ background: isLight ? 'rgba(236, 239, 249, 0.5)' : '#283341' }}
     >
       {children}
     </tr>
-  );
-};
+  )
+}
 
 export const buildRow = (
   values: [string, string, string, string, string, string],
@@ -35,8 +35,8 @@ export const buildRow = (
   ({
     ...(isCurrentMonth ? { render: RenderCurrentMonthRow } : {}),
     cellPadding: {
-      table_834: isTotal ? "17px 8px 18.5px" : "18.5px 8px",
-      desktop_1194: "17.4px 16px",
+      table_834: isTotal ? '17px 8px 18.5px' : '18.5px 8px',
+      desktop_1194: '17.4px 16px',
     },
     rowToCardConfig: {
       render: (props: CardRenderProps) => (
@@ -46,7 +46,7 @@ export const buildRow = (
           expandable={!!props.cells?.[0].rowIndex}
         />
       ),
-      ...(isTotal ? { type: "total" } : {}),
+      ...(isTotal ? { type: 'total' } : {}),
     },
     ...(isTotal
       ? {
@@ -61,37 +61,37 @@ export const buildRow = (
     cells: [
       {
         value: values[0],
-        defaultRenderer: "boldText",
+        defaultRenderer: 'boldText',
         inherit: EXPENSES_COMPARISON_TABLE_HEADER[1].cells[0],
         isCardHeader: true,
       },
       {
         value: values[1],
-        defaultRenderer: "number",
+        defaultRenderer: 'number',
         inherit: EXPENSES_COMPARISON_TABLE_HEADER[1].cells[1],
       },
       {
         value: values[2],
-        defaultRenderer: "number",
+        defaultRenderer: 'number',
         inherit: EXPENSES_COMPARISON_TABLE_HEADER[1].cells[2],
       },
       {
         value: values[3],
-        defaultRenderer: "number",
+        defaultRenderer: 'number',
         inherit: EXPENSES_COMPARISON_TABLE_HEADER[1].cells[3],
       },
       {
         value: values[4],
-        defaultRenderer: "number",
+        defaultRenderer: 'number',
         inherit: EXPENSES_COMPARISON_TABLE_HEADER[1].cells[4],
       },
       {
         value: values[5],
-        defaultRenderer: "number",
+        defaultRenderer: 'number',
         inherit: EXPENSES_COMPARISON_TABLE_HEADER[1].cells[5],
       },
     ],
-  } as RowProps);
+  } as RowProps)
 
 export const buildRowWithoutOffChain = (
   values: [string, string, string, string],
@@ -101,8 +101,8 @@ export const buildRowWithoutOffChain = (
   ({
     ...(isCurrentMonth ? { render: RenderCurrentMonthRow } : {}),
     cellPadding: {
-      table_834: isTotal ? "17px 8px 18.5px" : "18.5px 8px",
-      desktop_1194: "17.4px 16px",
+      table_834: isTotal ? '17px 8px 18.5px' : '18.5px 8px',
+      desktop_1194: '17.4px 16px',
     },
     rowToCardConfig: {
       render: (props: CardRenderProps) => (
@@ -112,7 +112,7 @@ export const buildRowWithoutOffChain = (
           expandable={!!props.cells?.[0].rowIndex}
         />
       ),
-      ...(isTotal ? { type: "total" } : {}),
+      ...(isTotal ? { type: 'total' } : {}),
     },
     ...(isTotal
       ? {
@@ -127,60 +127,58 @@ export const buildRowWithoutOffChain = (
     cells: [
       {
         value: values[0],
-        defaultRenderer: "boldText",
+        defaultRenderer: 'boldText',
         inherit: EXPENSES_COMPARISON_TABLE_HEADER_WITHOUT_OFF_CHAIN[0].cells[0],
         isCardHeader: true,
       },
       {
         value: values[1],
-        defaultRenderer: "number",
+        defaultRenderer: 'number',
         inherit: EXPENSES_COMPARISON_TABLE_HEADER_WITHOUT_OFF_CHAIN[0].cells[1],
       },
       {
         value: values[2],
-        defaultRenderer: "number",
+        defaultRenderer: 'number',
         inherit: EXPENSES_COMPARISON_TABLE_HEADER_WITHOUT_OFF_CHAIN[0].cells[3],
       },
       {
         value: values[3],
-        defaultRenderer: "number",
+        defaultRenderer: 'number',
         inherit: EXPENSES_COMPARISON_TABLE_HEADER_WITHOUT_OFF_CHAIN[0].cells[4],
       },
     ],
-  } as RowProps);
+  } as RowProps)
 
 export const formatExpenseMonth = (month: string): string =>
-  DateTime.fromFormat(month, "yyyy/MM")
-    .toFormat("MMM-yyyy")
-    .toLocaleUpperCase();
+  DateTime.fromFormat(month, 'yyyy/MM').toFormat('MMM-yyyy').toLocaleUpperCase()
 
 export const formatExpenseWithCurrency = (
   value: number,
   currency: Token
 ): string => {
-  const formatted = `${usLocalizedNumber(value, 2)} ${currency}`;
-  return formatted;
-};
+  const formatted = `${usLocalizedNumber(value, 2)} ${currency}`
+  return formatted
+}
 
 export const formatExpenseDifference = (value: number): string => {
-  const formatted = `${usLocalizedNumber(value, 2)}%`;
-  return formatted;
-};
+  const formatted = `${usLocalizedNumber(value, 2)}%`
+  return formatted
+}
 
 export const getTotals = (values: ActualsComparison[]): ActualsComparison =>
   values.reduce(
     (acc, curr) => {
-      acc.reportedActuals += curr.reportedActuals;
-      acc.netExpenses.onChainOnly.amount += curr.netExpenses.onChainOnly.amount;
+      acc.reportedActuals += curr.reportedActuals
+      acc.netExpenses.onChainOnly.amount += curr.netExpenses.onChainOnly.amount
       acc.netExpenses.onChainOnly.difference =
-        (acc.reportedActuals * 100) / acc.netExpenses.onChainOnly.amount - 100;
+        (acc.reportedActuals * 100) / acc.netExpenses.onChainOnly.amount - 100
       acc.netExpenses.offChainIncluded.amount +=
-        curr.netExpenses.offChainIncluded.amount;
+        curr.netExpenses.offChainIncluded.amount
       acc.netExpenses.offChainIncluded.difference =
         (acc.reportedActuals * 100) / acc.netExpenses.offChainIncluded.amount -
-        100;
+        100
 
-      return acc;
+      return acc
     },
     {
       reportedActuals: 0,
@@ -195,7 +193,7 @@ export const getTotals = (values: ActualsComparison[]): ActualsComparison =>
         },
       },
     } as ActualsComparison
-  );
+  )
 
 export const buildExpensesComparisonRows = (
   values: ActualsComparison[],
@@ -206,9 +204,9 @@ export const buildExpensesComparisonRows = (
     (value) =>
       value.netExpenses.offChainIncluded.amount ||
       value.netExpenses.offChainIncluded.difference
-  );
+  )
 
-  const rows: RowProps[] = [];
+  const rows: RowProps[] = []
   if (hasOffChainData) {
     values.forEach((comparison) => {
       const row = buildRow(
@@ -232,16 +230,16 @@ export const buildExpensesComparisonRows = (
         ],
         comparison.month === currentPeriod,
         false
-      );
-      rows.push(row);
-    });
+      )
+      rows.push(row)
+    })
 
     if (values.length > 1) {
-      const totals = getTotals(values);
+      const totals = getTotals(values)
       rows.push(
         buildRow(
           [
-            "Totals",
+            'Totals',
             formatExpenseWithCurrency(totals.reportedActuals, currency),
             formatExpenseWithCurrency(
               totals.netExpenses.onChainOnly.amount,
@@ -259,7 +257,7 @@ export const buildExpensesComparisonRows = (
           false,
           true
         )
-      );
+      )
     }
   } else {
     values.forEach((comparison) => {
@@ -277,16 +275,16 @@ export const buildExpensesComparisonRows = (
         ],
         comparison.month === currentPeriod,
         false
-      );
-      rows.push(row);
-    });
+      )
+      rows.push(row)
+    })
 
     if (values.length > 1) {
-      const totals = getTotals(values);
+      const totals = getTotals(values)
       rows.push(
         buildRowWithoutOffChain(
           [
-            "Totals",
+            'Totals',
             formatExpenseWithCurrency(totals.reportedActuals, currency),
             formatExpenseWithCurrency(
               totals.netExpenses.onChainOnly.amount,
@@ -297,9 +295,9 @@ export const buildExpensesComparisonRows = (
           false,
           true
         )
-      );
+      )
     }
   }
 
-  return rows;
-};
+  return rows
+}

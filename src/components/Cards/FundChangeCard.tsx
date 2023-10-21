@@ -1,38 +1,38 @@
-import styled from "@emotion/styled";
-import { useMediaQuery } from "@mui/material";
-import React from "react";
-import DefaultCountUp from "../DefaultCountUp/DefaultCountUp";
-import NumberWithSignCard from "../NumberWithSignCard/NumberWithSignCard";
-import OutlinedCard from "./OutlinedCard";
-import type { ValueColor } from "../NumberWithSignCard/NumberWithSignCard";
-import { usLocalizedNumber } from "../../utils/humanization";
-import { WithIsLight } from "../../utils/typesHelpers";
-import { useThemeContext } from "../../context/ThemeContext";
-import lightTheme from "../../styles/theme/light";
+import styled from '@emotion/styled'
+import { useMediaQuery } from '@mui/material'
+import React from 'react'
+import DefaultCountUp from '../DefaultCountUp/DefaultCountUp'
+import NumberWithSignCard from '../NumberWithSignCard/NumberWithSignCard'
+import OutlinedCard from './OutlinedCard'
+import type { ValueColor } from '../NumberWithSignCard/NumberWithSignCard'
+import { usLocalizedNumber } from '../../utils/humanization'
+import { WithIsLight } from '../../utils/typesHelpers'
+import { useThemeContext } from '../../context/ThemeContext'
+import lightTheme from '../../styles/theme/light'
 
 interface FundChangeCardProps {
-  netChange?: number;
-  leftValue?: number;
-  leftValueColor?: ValueColor;
-  leftText: string;
-  rightValue?: number;
-  rightValueColor?: ValueColor;
-  rightText: string;
-  dynamicChanges?: boolean;
+  netChange?: number
+  leftValue?: number
+  leftValueColor?: ValueColor
+  leftText: string
+  rightValue?: number
+  rightValueColor?: ValueColor
+  rightText: string
+  dynamicChanges?: boolean
 }
 
 const FundChangeCard: React.FC<FundChangeCardProps> = ({
   netChange,
   leftValue,
-  leftValueColor = "normal",
+  leftValueColor = 'normal',
   leftText,
   rightValue,
-  rightValueColor = "normal",
+  rightValueColor = 'normal',
   rightText,
   dynamicChanges = false,
 }) => {
-  const { isLight } = useThemeContext();
-  const isMobile = useMediaQuery(lightTheme.breakpoints.down("table_834"));
+  const { isLight } = useThemeContext()
+  const isMobile = useMediaQuery(lightTheme.breakpoints.down('table_834'))
 
   return (
     <Card>
@@ -49,7 +49,7 @@ const FundChangeCard: React.FC<FundChangeCardProps> = ({
           <Value isLight={isLight}>
             {netChange !== undefined ? (
               <>
-                {netChange > 0 && "+"}
+                {netChange > 0 && '+'}
                 {dynamicChanges ? (
                   <DefaultCountUp
                     end={Math.round(netChange)}
@@ -61,7 +61,7 @@ const FundChangeCard: React.FC<FundChangeCardProps> = ({
                 <div>DAI</div>
               </>
             ) : (
-              "N/A"
+              'N/A'
             )}
           </Value>
           <NetChangeMessage isLight={isLight}>Net Change</NetChangeMessage>
@@ -92,85 +92,85 @@ const FundChangeCard: React.FC<FundChangeCardProps> = ({
         />
       </ValuesContainer>
     </Card>
-  );
-};
+  )
+}
 
-export default FundChangeCard;
+export default FundChangeCard
 
 const Card = styled(OutlinedCard)({
   padding: 15,
-  display: "flex",
-  flexDirection: "row-reverse",
+  display: 'flex',
+  flexDirection: 'row-reverse',
 
-  [lightTheme.breakpoints.up("table_834")]: {
+  [lightTheme.breakpoints.up('table_834')]: {
     minWidth: 390,
     padding: 7,
-    flexDirection: "column",
+    flexDirection: 'column',
   },
 
-  [lightTheme.breakpoints.up("desktop_1194")]: {
+  [lightTheme.breakpoints.up('desktop_1194')]: {
     minWidth: 579,
-    padding: "16px 15px 15px",
+    padding: '16px 15px 15px',
   },
-});
+})
 
 const ChangeContainer = styled.div({
-  display: "flex",
-  flexDirection: "column",
-  width: "100%",
+  display: 'flex',
+  flexDirection: 'column',
+  width: '100%',
 
-  [lightTheme.breakpoints.up("table_834")]: {
-    flexDirection: "row",
+  [lightTheme.breakpoints.up('table_834')]: {
+    flexDirection: 'row',
   },
-});
+})
 
 const LeftArrowContainer = styled.div({
-  width: "100%",
+  width: '100%',
 
-  [lightTheme.breakpoints.up("table_834")]: {
+  [lightTheme.breakpoints.up('table_834')]: {
     marginRight: 8,
     paddingBottom: 1,
-    display: "flex",
+    display: 'flex',
   },
-});
+})
 
 const RightArrowContainer = styled.div({
-  width: "100%",
+  width: '100%',
 
-  [lightTheme.breakpoints.up("table_834")]: {
+  [lightTheme.breakpoints.up('table_834')]: {
     marginLeft: 8,
     paddingBottom: 1,
-    display: "flex",
+    display: 'flex',
   },
-});
+})
 
-const FillSpace = styled.div<{ position: "left" | "right" }>(
+const FillSpace = styled.div<{ position: 'left' | 'right' }>(
   ({ position }) => ({
-    [lightTheme.breakpoints.up("table_834")]: {
-      minWidth: position === "left" ? 100 : 84,
-      height: "100%",
+    [lightTheme.breakpoints.up('table_834')]: {
+      minWidth: position === 'left' ? 100 : 84,
+      height: '100%',
     },
 
-    [lightTheme.breakpoints.up("desktop_1194")]: {
-      minWidth: position === "left" ? 141 : 112,
+    [lightTheme.breakpoints.up('desktop_1194')]: {
+      minWidth: position === 'left' ? 141 : 112,
     },
   })
-);
+)
 
-const MobileArrow = styled.div<WithIsLight & { position: "top" | "bottom" }>(
+const MobileArrow = styled.div<WithIsLight & { position: 'top' | 'bottom' }>(
   ({ isLight, position }) => {
     const borderStyle = `2px solid ${
-      isLight ? "#ECEFF9" : "rgba(72, 73, 95, 0.3)"
-    }`;
+      isLight ? '#ECEFF9' : 'rgba(72, 73, 95, 0.3)'
+    }`
 
     return {
-      position: "relative",
-      height: position === "top" ? 14 : 10,
+      position: 'relative',
+      height: position === 'top' ? 14 : 10,
       borderRight: borderStyle,
       marginLeft: 8,
       marginRight: 42,
 
-      ...(position === "top"
+      ...(position === 'top'
         ? {
             marginTop: 22,
             borderTop: borderStyle,
@@ -182,49 +182,49 @@ const MobileArrow = styled.div<WithIsLight & { position: "top" | "bottom" }>(
             borderBottomRightRadius: 20,
           }),
 
-      "&::before": {
+      '&::before': {
         content: '""',
-        position: "absolute",
+        position: 'absolute',
         left: 0,
-        ...(position === "top" ? { top: -7.4 } : { bottom: -7.4 }),
+        ...(position === 'top' ? { top: -7.4 } : { bottom: -7.4 }),
 
         width: 13,
         height: 13,
         borderTop: borderStyle,
         borderLeft: borderStyle,
         borderTopLeftRadius: 1,
-        transform: "rotate(-45deg)",
+        transform: 'rotate(-45deg)',
       },
 
-      "&::after": {
+      '&::after': {
         content: '""',
-        position: "absolute",
+        position: 'absolute',
         right: -10,
-        ...(position === "top" ? { bottom: 0 } : { top: 0 }),
+        ...(position === 'top' ? { bottom: 0 } : { top: 0 }),
         width: 20,
         height: 2,
-        background: isLight ? "#ECEFF9" : "rgba(72, 73, 95, 0.3)",
+        background: isLight ? '#ECEFF9' : 'rgba(72, 73, 95, 0.3)',
         borderRadius: 1,
       },
-    };
+    }
   }
-);
+)
 
-const Arrow = styled.div<WithIsLight & { direction: "left" | "right" }>(
+const Arrow = styled.div<WithIsLight & { direction: 'left' | 'right' }>(
   ({ isLight, direction }) => {
-    const margin = 16;
+    const margin = 16
     const borderStyle = `2px solid ${
-      isLight ? "#ECEFF9" : "rgba(72, 73, 95, 0.3)"
-    }`;
+      isLight ? '#ECEFF9' : 'rgba(72, 73, 95, 0.3)'
+    }`
 
     return {
-      position: "relative",
+      position: 'relative',
       height: `calc(100% - ${margin}px)`,
       marginTop: margin,
       borderTop: borderStyle,
-      width: "100%",
+      width: '100%',
 
-      ...(direction === "left"
+      ...(direction === 'left'
         ? {
             borderLeft: borderStyle,
             borderTopLeftRadius: 20,
@@ -234,105 +234,105 @@ const Arrow = styled.div<WithIsLight & { direction: "left" | "right" }>(
             borderTopRightRadius: 20,
           }),
 
-      "&::before": {
+      '&::before': {
         content: '""',
-        position: "absolute",
+        position: 'absolute',
         bottom: 1,
-        ...(direction === "left" ? { left: -7.4 } : { right: -7.4 }),
+        ...(direction === 'left' ? { left: -7.4 } : { right: -7.4 }),
 
         width: 13,
         height: 13,
         borderTop: borderStyle,
         borderLeft: borderStyle,
         borderTopLeftRadius: 1,
-        transform: "rotate(225deg)",
+        transform: 'rotate(225deg)',
       },
 
-      "&::after": {
+      '&::after': {
         content: '""',
-        position: "absolute",
+        position: 'absolute',
         top: -8,
-        ...(direction === "left" ? { right: 0 } : { left: 0 }),
+        ...(direction === 'left' ? { right: 0 } : { left: 0 }),
         width: 2,
         height: 14,
-        background: isLight ? "#ECEFF9" : "rgba(72, 73, 95, 0.3)",
+        background: isLight ? '#ECEFF9' : 'rgba(72, 73, 95, 0.3)',
         borderRadius: 1,
       },
-    };
+    }
   }
-);
+)
 
 const ChangeContent = styled.div({
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "flex-end",
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'flex-end',
   marginTop: 2,
 
-  [lightTheme.breakpoints.up("table_834")]: {
+  [lightTheme.breakpoints.up('table_834')]: {
     marginTop: 0,
     paddingBottom: 8,
-    alignItems: "center",
+    alignItems: 'center',
   },
 
-  [lightTheme.breakpoints.up("desktop_1194")]: {
+  [lightTheme.breakpoints.up('desktop_1194')]: {
     paddingBottom: 16,
   },
-});
+})
 
 const Value = styled.div<WithIsLight>(({ isLight }) => ({
-  display: "flex",
+  display: 'flex',
   fontWeight: 500,
   fontSize: 14,
-  lineHeight: "17px",
+  lineHeight: '17px',
   letterSpacing: 0.4,
-  color: isLight ? "#9FAFB9" : "#546978",
+  color: isLight ? '#9FAFB9' : '#546978',
 
-  [lightTheme.breakpoints.up("table_834")]: {
+  [lightTheme.breakpoints.up('table_834')]: {
     fontSize: 16,
-    lineHeight: "19px",
+    lineHeight: '19px',
   },
 
-  "& > div": {
+  '& > div': {
     fontWeight: 700,
     fontSize: 14,
-    lineHeight: "17px",
+    lineHeight: '17px',
     letterSpacing: 0.3,
     fontFeatureSettings: "'tnum' on, 'lnum' on",
-    color: isLight ? "#9FAFB9" : "#31424E",
+    color: isLight ? '#9FAFB9' : '#31424E',
     marginLeft: 4,
 
-    [lightTheme.breakpoints.up("table_834")]: {
+    [lightTheme.breakpoints.up('table_834')]: {
       fontSize: 16,
-      lineHeight: "19px",
+      lineHeight: '19px',
     },
   },
-}));
+}))
 
 const NetChangeMessage = styled.div<WithIsLight>(({ isLight }) => ({
   fontSize: 12,
-  lineHeight: "15px",
-  color: isLight ? "#D1DEE6" : "#405361",
-  margin: "4px 10px 3px 0",
-  whiteSpace: "nowrap",
+  lineHeight: '15px',
+  color: isLight ? '#D1DEE6' : '#405361',
+  margin: '4px 10px 3px 0',
+  whiteSpace: 'nowrap',
 
-  [lightTheme.breakpoints.up("table_834")]: {
+  [lightTheme.breakpoints.up('table_834')]: {
     fontSize: 14,
-    lineHeight: "17px",
+    lineHeight: '17px',
     margin: 0,
   },
-}));
+}))
 
 const ValuesContainer = styled.div({
-  display: "flex",
+  display: 'flex',
   gap: 8,
-  flexDirection: "column",
-  width: "100%",
+  flexDirection: 'column',
+  width: '100%',
 
-  [lightTheme.breakpoints.up("table_834")]: {
-    flexDirection: "row",
+  [lightTheme.breakpoints.up('table_834')]: {
+    flexDirection: 'row',
   },
 
-  [lightTheme.breakpoints.up("desktop_1194")]: {
+  [lightTheme.breakpoints.up('desktop_1194')]: {
     gap: 24,
   },
-});
+})

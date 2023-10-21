@@ -1,15 +1,19 @@
-import styled from '@emotion/styled';
-import React from 'react';
-import CopyIcon from '../common/CopyIcon/CopyIcon';
-import lightTheme from '../../styles/theme/light';
+import styled from '@emotion/styled'
+import React from 'react'
+import CopyIcon from '../common/CopyIcon/CopyIcon'
+import lightTheme from '../../styles/theme/light'
 
 interface TxHashProps {
-  txHash: string | null;
-  className?: string;
+  txHash: string | null
+  className?: string
 }
 
 const TxHash: React.FC<TxHashProps> = ({ txHash, ...props }) => {
-  const formattedHash = !txHash ? '' : txHash?.length <= 16 ? txHash : `${txHash.slice(0, 16)}...`;
+  const formattedHash = !txHash
+    ? ''
+    : txHash?.length <= 16
+    ? txHash
+    : `${txHash.slice(0, 16)}...`
 
   return (
     <TxHashContainer {...props}>
@@ -18,14 +22,14 @@ const TxHash: React.FC<TxHashProps> = ({ txHash, ...props }) => {
       </Hash>
       <CopyIcon text={txHash ?? ''} defaultTooltip="Copy Transaction Hash" />
     </TxHashContainer>
-  );
-};
+  )
+}
 
-export default TxHash;
+export default TxHash
 
 const TxHashContainer = styled.div({
   display: 'flex',
-});
+})
 
 const Hash = styled.a(() => ({
   fontSize: 12,
@@ -36,4 +40,4 @@ const Hash = styled.a(() => ({
     fontSize: 14,
     lineHeight: '17px',
   },
-}));
+}))

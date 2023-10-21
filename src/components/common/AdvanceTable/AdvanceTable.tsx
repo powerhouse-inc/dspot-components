@@ -1,15 +1,15 @@
-import styled from "@emotion/styled";
-import { useMediaQuery } from "@mui/material";
-import React from "react";
-import DefaultCard from "./BuiltIn/Cards/DefaultCard";
-import DefaultCell from "./BuiltIn/Cells/DefaultCell";
-import DefaultTBody from "./BuiltIn/DefaultTBody";
-import DefaultTHead from "./BuiltIn/DefaultTHead";
-import DefaultTR from "./BuiltIn/DefaultTR";
-import type { TableProps } from "./types";
-import lightTheme from "../../../styles/theme/light";
-import { useThemeContext } from "../../../context/ThemeContext";
-import { WithIsLight } from "../../../utils/typesHelpers";
+import styled from '@emotion/styled'
+import { useMediaQuery } from '@mui/material'
+import React from 'react'
+import DefaultCard from './BuiltIn/Cards/DefaultCard'
+import DefaultCell from './BuiltIn/Cells/DefaultCell'
+import DefaultTBody from './BuiltIn/DefaultTBody'
+import DefaultTHead from './BuiltIn/DefaultTHead'
+import DefaultTR from './BuiltIn/DefaultTR'
+import type { TableProps } from './types'
+import lightTheme from '../../../styles/theme/light'
+import { useThemeContext } from '../../../context/ThemeContext'
+import { WithIsLight } from '../../../utils/typesHelpers'
 
 const AdvanceTable: React.FC<TableProps> = ({
   className,
@@ -19,20 +19,20 @@ const AdvanceTable: React.FC<TableProps> = ({
   bodyRender = DefaultTBody,
   toCardsOnMobile = true,
 }) => {
-  const { isLight } = useThemeContext();
-  const isMobile = useMediaQuery(lightTheme.breakpoints.down("table_834"));
-  const showCards = isMobile && toCardsOnMobile;
-  const THead = headerRender;
-  const TBody = bodyRender;
+  const { isLight } = useThemeContext()
+  const isMobile = useMediaQuery(lightTheme.breakpoints.down('table_834'))
+  const showCards = isMobile && toCardsOnMobile
+  const THead = headerRender
+  const TBody = bodyRender
 
   return showCards ? (
     <div>
       {body?.map((row, rowIndex) => {
-        let extendedRow = row;
+        let extendedRow = row
         if (
-          row?.rowToCardConfig?.type === "groupTitle" &&
+          row?.rowToCardConfig?.type === 'groupTitle' &&
           rowIndex + 1 < body?.length &&
-          body[rowIndex + 1].rowToCardConfig?.type === "title"
+          body[rowIndex + 1].rowToCardConfig?.type === 'title'
         ) {
           extendedRow = {
             ...body[rowIndex + 1],
@@ -40,14 +40,14 @@ const AdvanceTable: React.FC<TableProps> = ({
               ...((body[rowIndex + 1]?.extraProps as object) ?? {}),
               groupTitle: row.cells[0].value as string,
             },
-          };
+          }
         } else if (
-          row.rowToCardConfig?.type === "title" &&
+          row.rowToCardConfig?.type === 'title' &&
           rowIndex > 0 &&
-          body[rowIndex - 1].rowToCardConfig?.type === "groupTitle"
+          body[rowIndex - 1].rowToCardConfig?.type === 'groupTitle'
         ) {
           // the title was included in the previous group title
-          return null;
+          return null
         }
 
         // add the colIndex and rowIndex
@@ -60,7 +60,7 @@ const AdvanceTable: React.FC<TableProps> = ({
               colIndex,
             })),
           ],
-        };
+        }
 
         return (
           <DefaultCard
@@ -68,7 +68,7 @@ const AdvanceTable: React.FC<TableProps> = ({
             row={extendedRow}
             key={`card-${rowIndex}`}
           />
-        );
+        )
       })}
     </div>
   ) : (
@@ -88,7 +88,7 @@ const AdvanceTable: React.FC<TableProps> = ({
                       defaultRenderer:
                         cell.defaultRenderer ??
                         row.cellDefaultRenderer ??
-                        "basicHeader",
+                        'basicHeader',
                       rowIndex,
                       colIndex,
                       extraProps: {
@@ -116,7 +116,7 @@ const AdvanceTable: React.FC<TableProps> = ({
                       defaultRenderer:
                         cell.defaultRenderer ??
                         row.cellDefaultRenderer ??
-                        "text",
+                        'text',
                       rowIndex,
                       colIndex,
                       extraProps: {
@@ -132,23 +132,23 @@ const AdvanceTable: React.FC<TableProps> = ({
         )}
       </Table>
     </TableWrapper>
-  );
-};
+  )
+}
 
-export default AdvanceTable;
+export default AdvanceTable
 
 const TableWrapper = styled.div<WithIsLight>(({ isLight }) => ({
-  overflowX: "auto",
+  overflowX: 'auto',
   boxShadow: isLight
-    ? "0px 20px 40px -40px rgba(219, 227, 237, 0.4), 0px 1px 3px rgba(190, 190, 190, 0.25)"
-    : "0px 20px 40px -40px rgba(7, 22, 40, 0.4), 0px 1px 3px rgba(30, 23, 23, 0.25)",
+    ? '0px 20px 40px -40px rgba(219, 227, 237, 0.4), 0px 1px 3px rgba(190, 190, 190, 0.25)'
+    : '0px 20px 40px -40px rgba(7, 22, 40, 0.4), 0px 1px 3px rgba(30, 23, 23, 0.25)',
   borderRadius: 6,
-}));
+}))
 
 const Table = styled.table<WithIsLight>(({ isLight }) => ({
-  borderCollapse: "collapse",
-  flex: "1",
-  width: "100%",
-  background: isLight ? "#FFFFFF" : "#10191F",
+  borderCollapse: 'collapse',
+  flex: '1',
+  width: '100%',
+  background: isLight ? '#FFFFFF' : '#10191F',
   borderRadius: 6,
-}));
+}))

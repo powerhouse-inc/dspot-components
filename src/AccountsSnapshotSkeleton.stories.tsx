@@ -1,6 +1,6 @@
-import type { Meta } from "@storybook/react";
-import { createThemeModeVariants } from "./utils/storybook/factories";
-import AccountsSnapshotSkeleton from "./AccountsSnapshotSkeleton";
+import type { Meta } from '@storybook/react'
+import { createThemeModeVariants } from './utils/storybook/factories'
+import AccountsSnapshotSkeleton from './AccountsSnapshotSkeleton'
 
 const meta: Meta<typeof AccountsSnapshotSkeleton> = {
   component: AccountsSnapshotSkeleton,
@@ -9,14 +9,14 @@ const meta: Meta<typeof AccountsSnapshotSkeleton> = {
       viewports: [375, 834, 1194, 1280, 1440],
     },
   },
-};
-export default meta;
+}
+export default meta
 
-const variantsArgs = [{}];
+const variantsArgs = [{}]
 
 const [[LightMode, DarkMode]] = createThemeModeVariants(
   AccountsSnapshotSkeleton,
   variantsArgs
-);
+)
 
-export { LightMode, DarkMode };
+export { LightMode, DarkMode }

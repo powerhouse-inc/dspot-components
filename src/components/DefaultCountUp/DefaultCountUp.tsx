@@ -1,6 +1,6 @@
-import React from "react";
-import CountUp from "react-countup";
-import type { CountUpProps } from "react-countup/build/CountUp";
+import React from 'react'
+import CountUp from 'react-countup'
+import type { CountUpProps } from 'react-countup/build/CountUp'
 
 export default function DefaultCountUp({
   duration = 1,
@@ -9,5 +9,5 @@ export default function DefaultCountUp({
 }: CountUpProps) {
   return (
     <CountUp duration={duration} preserveValue={preserveValue} {...props} />
-  );
+  )
 }

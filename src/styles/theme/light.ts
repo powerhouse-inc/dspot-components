@@ -1,22 +1,22 @@
-import { createTheme, responsiveFontSizes } from '@mui/material/styles';
+import { createTheme, responsiveFontSizes } from '@mui/material/styles'
 declare module '@mui/material/styles' {
   // eslint-disable-next-line spellcheck/spell-checker
   interface BreakpointOverrides {
-    xs: false;
-    sm: false;
-    md: false;
-    lg: false;
-    xl: false;
-    desktop_1920: true;
-    desktop_1440: true;
-    desktop_1280: true;
-    desktop_1024: true;
+    xs: false
+    sm: false
+    md: false
+    lg: false
+    xl: false
+    desktop_1920: true
+    desktop_1440: true
+    desktop_1280: true
+    desktop_1024: true
     /** @deprecated in favor of desktop 1024 */
-    desktop_1194: true;
+    desktop_1194: true
     /** @deprecated in favor of tablet 768 */
-    table_834: true;
-    tablet_768: true;
-    mobile_375: true;
+    table_834: true
+    tablet_768: true
+    mobile_375: true
   }
 }
 
@@ -31,7 +31,7 @@ export const breakpoints = {
   table_834: 834,
   tablet_768: 768,
   mobile_375: 375,
-};
+}
 
 const lightTheme = responsiveFontSizes(
   createTheme({
@@ -52,6 +52,6 @@ const lightTheme = responsiveFontSizes(
       },
     },
   })
-);
+)
 
-export default lightTheme;
+export default lightTheme

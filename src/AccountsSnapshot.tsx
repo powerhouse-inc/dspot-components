@@ -1,16 +1,17 @@
-import styled from "@emotion/styled";
-import React from "react";
-import CUReserves from "./components/CUReserves/CUReserves";
-import ExpensesComparison from "./components/ExpensesComparison/ExpensesComparison";
-import FundingOverview from "./components/FundingOverview/FundingOverview";
-import useAccountsSnapshot from "./useAccountsSnapshot";
-import { ResourceType, Snapshots } from "./types";
+import styled from '@emotion/styled'
+import React from 'react'
+import CUReserves from './components/CUReserves/CUReserves'
+import ExpensesComparison from './components/ExpensesComparison/ExpensesComparison'
+import FundingOverview from './components/FundingOverview/FundingOverview'
+import useAccountsSnapshot from './useAccountsSnapshot'
+import { AccountSnapshotMode, ResourceType, Snapshots } from './types'
 
 export interface AccountsSnapshotProps {
-  snapshot: Snapshots;
-  snapshotOwner?: string;
-  sinceDate?: Date;
-  resourceType?: ResourceType;
+  snapshot: Snapshots
+  snapshotOwner?: string
+  sinceDate?: Date
+  resourceType?: ResourceType
+  mode?: AccountSnapshotMode
 }
 
 const AccountsSnapshot: React.FC<AccountsSnapshotProps> = ({
@@ -18,6 +19,7 @@ const AccountsSnapshot: React.FC<AccountsSnapshotProps> = ({
   snapshotOwner,
   sinceDate,
   resourceType,
+  mode = 'view',
 }) => {
   const {
     enableCurrencyPicker,
@@ -33,7 +35,7 @@ const AccountsSnapshot: React.FC<AccountsSnapshotProps> = ({
     offChainData,
     hasOffChainData,
     hasActualsComparison,
-  } = useAccountsSnapshot(snapshot);
+  } = useAccountsSnapshot(snapshot)
 
   return (
     <Wrapper>
@@ -64,14 +66,14 @@ const AccountsSnapshot: React.FC<AccountsSnapshotProps> = ({
         />
       )}
     </Wrapper>
-  );
-};
+  )
+}
 
-export default AccountsSnapshot;
+export default AccountsSnapshot
 
 const Wrapper = styled.div({
-  display: "flex",
-  flexDirection: "column",
+  display: 'flex',
+  flexDirection: 'column',
   gap: 64,
   marginBottom: 64,
-});
+})

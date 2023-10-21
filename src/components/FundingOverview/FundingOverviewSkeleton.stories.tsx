@@ -1,6 +1,6 @@
-import { Meta } from "@storybook/react";
-import FundingOverviewSkeleton from "./FundingOverviewSkeleton";
-import { createThemeModeVariants } from "../../utils/storybook/factories";
+import { Meta } from '@storybook/react'
+import FundingOverviewSkeleton from './FundingOverviewSkeleton'
+import { createThemeModeVariants } from '../../utils/storybook/factories'
 
 const meta: Meta<typeof FundingOverviewSkeleton> = {
   component: FundingOverviewSkeleton,
@@ -9,17 +9,17 @@ const meta: Meta<typeof FundingOverviewSkeleton> = {
       viewports: [375, 834, 1194, 1280, 1440],
     },
   },
-};
-export default meta;
+}
+export default meta
 
-const variantsArgs = [{}];
+const variantsArgs = [{}]
 
 const [[LightMode, DarkMode]] = createThemeModeVariants(
   FundingOverviewSkeleton,
   variantsArgs
-);
+)
 
-export { LightMode, DarkMode };
+export { LightMode, DarkMode }
 
 // LightMode.parameters = {
 //   figma: {

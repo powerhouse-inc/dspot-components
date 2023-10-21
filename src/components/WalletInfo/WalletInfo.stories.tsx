@@ -1,25 +1,25 @@
-import { Meta } from "@storybook/react";
-import WalletInfo from "./WalletInfo";
-import { createThemeModeVariants } from "../../utils/storybook/factories";
+import { Meta } from '@storybook/react'
+import WalletInfo from './WalletInfo'
+import { createThemeModeVariants } from '../../utils/storybook/factories'
 
 const meta: Meta<typeof WalletInfo> = {
   component: WalletInfo,
-};
-export default meta;
+}
+export default meta
 
 const variantsArgs = [
   {
-    name: "Auditor",
-    address: "0x232b567890123456789012345678901234568482",
+    name: 'Auditor',
+    address: '0x232b567890123456789012345678901234568482',
   },
-];
+]
 
 const [[LightMode, DarkMode]] = createThemeModeVariants(
   WalletInfo,
   variantsArgs
-);
+)
 
-export { LightMode, DarkMode };
+export { LightMode, DarkMode }
 
 // LightMode.parameters = {
 //   figma: {

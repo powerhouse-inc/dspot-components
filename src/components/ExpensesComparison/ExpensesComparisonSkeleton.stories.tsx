@@ -1,6 +1,6 @@
-import { createThemeModeVariants } from "../../utils/storybook/factories";
-import ExpensesComparisonSkeleton from "./ExpensesComparisonSkeleton";
-import type { ComponentMeta, Meta } from "@storybook/react";
+import { createThemeModeVariants } from '../../utils/storybook/factories'
+import ExpensesComparisonSkeleton from './ExpensesComparisonSkeleton'
+import type { ComponentMeta, Meta } from '@storybook/react'
 
 const meta: Meta<typeof ExpensesComparisonSkeleton> = {
   component: ExpensesComparisonSkeleton,
@@ -9,16 +9,16 @@ const meta: Meta<typeof ExpensesComparisonSkeleton> = {
       viewports: [375, 834, 1194, 1280, 1440],
     },
   },
-};
-export default meta;
+}
+export default meta
 
-const variantsArgs = [{}];
+const variantsArgs = [{}]
 const [[LightMode, DarkMode]] = createThemeModeVariants(
   ExpensesComparisonSkeleton,
   variantsArgs
-);
+)
 
-export { LightMode, DarkMode };
+export { LightMode, DarkMode }
 
 // LightMode.parameters = {
 //   figma: {

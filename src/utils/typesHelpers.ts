@@ -1,26 +1,26 @@
-import { SnapshotAccount } from "../types";
+import { SnapshotAccount } from '../types'
 
 export const isSnapshotAccount = (
   snapshotAccount: SnapshotAccount | unknown
 ): snapshotAccount is SnapshotAccount => {
-  const account = snapshotAccount as SnapshotAccount;
+  const account = snapshotAccount as SnapshotAccount
   if (
     account?.accountLabel ||
     account?.accountType ||
     account?.snapshotAccountBalance
   ) {
-    return true;
+    return true
   }
-  return false;
-};
+  return false
+}
 
 export type WithIsLight = {
-  isLight: boolean;
-};
+  isLight: boolean
+}
 
 export type PopoverPaperType = {
-  background: string;
-  border: string;
-  boxShadow: string;
-  borderRadius: string;
-};
+  background: string
+  border: string
+  boxShadow: string
+  borderRadius: string
+}

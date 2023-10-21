@@ -1,19 +1,19 @@
-import styled from "@emotion/styled";
-import React from "react";
-import { useThemeContext } from "../../context/ThemeContext";
-import { formatAddressForOutput } from "../../utils/strings";
-import CopyIcon from "../common/CopyIcon/CopyIcon";
-import lightTheme from "../../styles/theme/light";
-import Identicon from "../common/Identicon/Identicon";
-import { WithIsLight } from "../../utils/typesHelpers";
+import styled from '@emotion/styled'
+import React from 'react'
+import { useThemeContext } from '../../context/ThemeContext'
+import { formatAddressForOutput } from '../../utils/strings'
+import CopyIcon from '../common/CopyIcon/CopyIcon'
+import lightTheme from '../../styles/theme/light'
+import Identicon from '../common/Identicon/Identicon'
+import { WithIsLight } from '../../utils/typesHelpers'
 
 interface WalletInfoProps {
-  name: string;
-  address: string;
+  name: string
+  address: string
 }
 
 const WalletInfo: React.FC<WalletInfoProps> = ({ name, address }) => {
-  const { isLight } = useThemeContext();
+  const { isLight } = useThemeContext()
 
   return (
     <Container>
@@ -30,87 +30,87 @@ const WalletInfo: React.FC<WalletInfoProps> = ({ name, address }) => {
             href={`https://etherscan.io/address/${address}`}
             target="_blank"
           >
-            {formatAddressForOutput(address, 6, 4, "...")}
+            {formatAddressForOutput(address, 6, 4, '...')}
           </Address>
-          <CopyIcon text={address ?? ""} defaultTooltip="Copy Address" />
+          <CopyIcon text={address ?? ''} defaultTooltip="Copy Address" />
         </AddressContainer>
       </InfoContainer>
     </Container>
-  );
-};
+  )
+}
 
-export default WalletInfo;
+export default WalletInfo
 
 const Container = styled.div({
-  display: "flex",
+  display: 'flex',
 
-  [lightTheme.breakpoints.up("table_834")]: {
+  [lightTheme.breakpoints.up('table_834')]: {
     marginTop: 4,
   },
 
-  [lightTheme.breakpoints.up("desktop_1440")]: {
+  [lightTheme.breakpoints.up('desktop_1440')]: {
     marginTop: 3,
   },
-});
+})
 
 const BlockiesContainer = styled.div({
   width: 32,
   height: 32,
   minWidth: 32,
-  borderRadius: "50%",
+  borderRadius: '50%',
   marginRight: 16,
   marginTop: 2,
-  overflow: "hidden",
-  background: "gray",
+  overflow: 'hidden',
+  background: 'gray',
 
-  [lightTheme.breakpoints.between("table_834", "desktop_1194")]: {
+  [lightTheme.breakpoints.between('table_834', 'desktop_1194')]: {
     marginTop: 1,
   },
-});
+})
 
 const BlockieIdenticon = styled(Identicon)({
   width: 32,
   height: 32,
-});
+})
 
-const InfoContainer = styled.div({});
+const InfoContainer = styled.div({})
 
 const NameContainer = styled.div({
-  display: "flex",
-});
+  display: 'flex',
+})
 
 const Name = styled.div<WithIsLight>(({ isLight }) => ({
   fontWeight: 700,
   fontSize: 16,
-  lineHeight: "19px",
-  color: isLight ? "#231536" : "#D2D4EF",
+  lineHeight: '19px',
+  color: isLight ? '#231536' : '#D2D4EF',
   marginBottom: 4,
   marginRight: 8.5,
 
-  [lightTheme.breakpoints.between("table_834", "desktop_1194")]: {
+  [lightTheme.breakpoints.between('table_834', 'desktop_1194')]: {
     fontSize: 12,
-    lineHeight: "17px",
+    lineHeight: '17px',
     marginBottom: 6,
     marginRight: 4,
   },
-}));
+}))
 
 const AddressContainer = styled.div({
-  display: "flex",
-});
+  display: 'flex',
+})
 
 const Address = styled.a<WithIsLight>(({ isLight }) => ({
   fontSize: 14,
-  lineHeight: "17px",
-  color: isLight ? "#447AFB" : "#447AFB",
+  lineHeight: '17px',
+  color: isLight ? '#447AFB' : '#447AFB',
   marginRight: 17,
 
-  [lightTheme.breakpoints.up("table_834")]: {
+  [lightTheme.breakpoints.up('table_834')]: {
     marginRight: 2,
   },
 
-  [lightTheme.breakpoints.between("table_834", "desktop_1194")]: {
+  [lightTheme.breakpoints.between('table_834', 'desktop_1194')]: {
     fontSize: 12,
-    lineHeight: "15px",
+    lineHeight: '15px',
   },
-}));
+}))

@@ -1,31 +1,31 @@
-import styled from "@emotion/styled";
-import merge from "lodash/merge";
-import React from "react";
+import styled from '@emotion/styled'
+import merge from 'lodash/merge'
+import React from 'react'
 import {
   buildBorderStyles,
   buildPaddingStyles,
   buildWidthStyles,
-} from "../../utils";
-import type { GenericCell } from "../../types";
-import { WithIsLight } from "../../../../../utils/typesHelpers";
-import { useThemeContext } from "../../../../../context/ThemeContext";
+} from '../../utils'
+import type { GenericCell } from '../../types'
+import { WithIsLight } from '../../../../../utils/typesHelpers'
+import { useThemeContext } from '../../../../../context/ThemeContext'
 
 interface BasicCellProps {
-  cell: GenericCell;
-  className?: string;
-  as?: keyof JSX.IntrinsicElements;
+  cell: GenericCell
+  className?: string
+  as?: keyof JSX.IntrinsicElements
 }
 
 const BasicCell: React.FC<BasicCellProps> = ({ cell, className, as }) => {
-  const { isLight } = useThemeContext();
+  const { isLight } = useThemeContext()
 
   return (
     <TD
       className={className}
-      as={as ?? (cell.isHeader ? "th" : "td")}
+      as={as ?? (cell.isHeader ? 'th' : 'td')}
       isLight={isLight}
-      align={cell.alignment ?? cell.inherit?.alignment ?? "left"}
-      padding={cell.cellPadding ?? cell.inherit?.cellPadding ?? "16px"}
+      align={cell.alignment ?? cell.inherit?.alignment ?? 'left'}
+      padding={cell.cellPadding ?? cell.inherit?.cellPadding ?? '16px'}
       rowSpan={cell.rowSpan ?? cell.inherit?.rowSpan}
       colSpan={cell.colSpan ?? cell.inherit?.colSpan}
       border={cell.border ?? cell.inherit?.border ?? {}}
@@ -33,17 +33,17 @@ const BasicCell: React.FC<BasicCellProps> = ({ cell, className, as }) => {
     >
       {cell.value as React.ReactNode}
     </TD>
-  );
-};
+  )
+}
 
-export default BasicCell;
+export default BasicCell
 
 const TD = styled.td<
   WithIsLight & {
-    align: GenericCell["alignment"];
-    padding: GenericCell["cellPadding"];
-    border: GenericCell["border"];
-    cellWidth: GenericCell["width"];
+    align: GenericCell['alignment']
+    padding: GenericCell['cellPadding']
+    border: GenericCell['border']
+    cellWidth: GenericCell['width']
   }
 >(({ isLight, align, padding, border, cellWidth }) => ({
   textAlign: align,
@@ -52,4 +52,4 @@ const TD = styled.td<
     buildWidthStyles(cellWidth),
     buildBorderStyles(border, isLight)
   ),
-}));
+}))

@@ -1,23 +1,23 @@
-import styled from '@emotion/styled';
-import { useMediaQuery } from '@mui/material';
-import React from 'react';
-import MobileTransaction from './MobileTransaction';
-import TransactionAmount from './segments/TransactionAmount';
-import TransactionCounterParty from './segments/TransactionCounterParty';
-import TransactionHeader from './segments/TransactionHeader';
-import { WithIsLight } from '../../utils/typesHelpers';
-import lightTheme from '../../styles/theme/light';
-import { useThemeContext } from '../../context/ThemeContext';
+import styled from '@emotion/styled'
+import { useMediaQuery } from '@mui/material'
+import React from 'react'
+import MobileTransaction from './MobileTransaction'
+import TransactionAmount from './segments/TransactionAmount'
+import TransactionCounterParty from './segments/TransactionCounterParty'
+import TransactionHeader from './segments/TransactionHeader'
+import { WithIsLight } from '../../utils/typesHelpers'
+import lightTheme from '../../styles/theme/light'
+import { useThemeContext } from '../../context/ThemeContext'
 
 export interface TransactionProps {
-  name: string;
-  date: string;
-  toDate?: string | null;
-  txHash: string | null;
-  counterPartyName: string;
-  counterPartyAddress: string;
-  amount: number;
-  highlightPositiveAmounts?: boolean;
+  name: string
+  date: string
+  toDate?: string | null
+  txHash: string | null
+  counterPartyName: string
+  counterPartyAddress: string
+  amount: number
+  highlightPositiveAmounts?: boolean
 }
 
 const Transaction: React.FC<TransactionProps> = ({
@@ -30,9 +30,9 @@ const Transaction: React.FC<TransactionProps> = ({
   amount,
   highlightPositiveAmounts = false,
 }) => {
-  const { isLight } = useThemeContext();
-  const isMobile = useMediaQuery(lightTheme.breakpoints.down('table_834'));
-  const isIncomingTransaction = amount > 0;
+  const { isLight } = useThemeContext()
+  const isMobile = useMediaQuery(lightTheme.breakpoints.down('table_834'))
+  const isIncomingTransaction = amount > 0
 
   return isMobile ? (
     <MobileTransaction
@@ -59,12 +59,15 @@ const Transaction: React.FC<TransactionProps> = ({
         name={counterPartyName}
         address={counterPartyAddress}
       />
-      <TransactionAmount amount={amount} highlightPositiveAmounts={highlightPositiveAmounts} />
+      <TransactionAmount
+        amount={amount}
+        highlightPositiveAmounts={highlightPositiveAmounts}
+      />
     </TransactionContainer>
-  );
-};
+  )
+}
 
-export default Transaction;
+export default Transaction
 
 const TransactionContainer = styled.div<WithIsLight>(({ isLight }) => ({
   display: 'grid',
@@ -89,4 +92,4 @@ const TransactionContainer = styled.div<WithIsLight>(({ isLight }) => ({
   '&:hover': {
     background: isLight ? '#F6F8F9' : '#1F2931',
   },
-}));
+}))

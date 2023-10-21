@@ -1,2 +1,2 @@
 export const getPageWrapper = (): HTMLElement | null =>
-  document?.querySelector<HTMLElement>("body");
+  document?.querySelector<HTMLElement>('body')

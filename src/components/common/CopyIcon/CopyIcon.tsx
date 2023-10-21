@@ -1,17 +1,17 @@
-import styled from "@emotion/styled";
-import React, { useState } from "react";
-import { CopyToClipboard } from "react-copy-to-clipboard";
-import { CustomPopover } from "../CustomPopover/CustomPopover";
-import { useThemeContext } from "../../../context/ThemeContext";
-import ClipBoard from "../SVG/ClipBoard";
+import styled from '@emotion/styled'
+import React, { useState } from 'react'
+import { CopyToClipboard } from 'react-copy-to-clipboard'
+import { CustomPopover } from '../CustomPopover/CustomPopover'
+import { useThemeContext } from '../../../context/ThemeContext'
+import ClipBoard from '../SVG/ClipBoard'
 
 interface CopyIconProps {
-  text: string;
-  className?: string;
-  defaultTooltip?: string;
-  defaultCopyTooltip?: string;
-  width?: number;
-  height?: number;
+  text: string
+  className?: string
+  defaultTooltip?: string
+  defaultCopyTooltip?: string
+  width?: number
+  height?: number
 }
 
 const CopyIcon: React.FC<CopyIconProps> = ({
@@ -19,25 +19,25 @@ const CopyIcon: React.FC<CopyIconProps> = ({
   text,
   height,
   width,
-  defaultTooltip = "Copy",
-  defaultCopyTooltip = "Copied!",
+  defaultTooltip = 'Copy',
+  defaultCopyTooltip = 'Copied!',
 }) => {
-  const { isLight } = useThemeContext();
-  const [popoverText, setPopoverText] = useState<string>(defaultTooltip);
+  const { isLight } = useThemeContext()
+  const [popoverText, setPopoverText] = useState<string>(defaultTooltip)
 
   const handleOnClose = () => {
-    setTimeout(() => setPopoverText(defaultTooltip), 100);
-  };
+    setTimeout(() => setPopoverText(defaultTooltip), 100)
+  }
 
   return (
     <IconContainer className={className}>
       <CustomPopover
-        id={"copy-id"}
+        id={'copy-id'}
         title={popoverText}
         closeOnClick={false}
         onClose={handleOnClose}
         popupStyle={{
-          color: isLight ? "#231536" : "#D2D4EF",
+          color: isLight ? '#231536' : '#D2D4EF',
         }}
       >
         <CopyToClipboard
@@ -52,16 +52,16 @@ const CopyIcon: React.FC<CopyIconProps> = ({
         </CopyToClipboard>
       </CustomPopover>
     </IconContainer>
-  );
-};
+  )
+}
 
-export default CopyIcon;
+export default CopyIcon
 
 const IconContainer = styled.div({
-  display: "flex",
-  cursor: "pointer",
+  display: 'flex',
+  cursor: 'pointer',
 
-  "> div": {
-    display: "flex",
+  '> div': {
+    display: 'flex',
   },
-});
+})

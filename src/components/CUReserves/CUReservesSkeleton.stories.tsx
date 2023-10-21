@@ -1,6 +1,6 @@
-import { Meta } from "@storybook/react";
-import { createThemeModeVariants } from "../../utils/storybook/factories";
-import CUReservesSkeleton from "./CUReservesSkeleton";
+import { Meta } from '@storybook/react'
+import { createThemeModeVariants } from '../../utils/storybook/factories'
+import CUReservesSkeleton from './CUReservesSkeleton'
 
 const meta: Meta<typeof CUReservesSkeleton> = {
   component: CUReservesSkeleton,
@@ -9,16 +9,16 @@ const meta: Meta<typeof CUReservesSkeleton> = {
       viewports: [375, 834, 1194, 1280, 1440],
     },
   },
-};
-export default meta;
+}
+export default meta
 
-const variantsArgs = [{}];
+const variantsArgs = [{}]
 const [[LightMode, DarkMode]] = createThemeModeVariants(
   CUReservesSkeleton,
   variantsArgs
-);
+)
 
-export { LightMode, DarkMode };
+export { LightMode, DarkMode }
 // LightMode.parameters = {
 //   figma: {
 //     component: {

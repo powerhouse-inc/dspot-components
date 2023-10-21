@@ -1,7 +1,7 @@
-import { SnapshotAccountTransactionBuilder } from "../../builders/accountSnapshot/snapshotAccountTransactionBuilder";
-import { createThemeModeVariants } from "../../utils/storybook/factories";
-import FundingOverview from "./FundingOverview";
-import type { Meta } from "@storybook/react";
+import { SnapshotAccountTransactionBuilder } from '../../builders/accountSnapshot/snapshotAccountTransactionBuilder'
+import { createThemeModeVariants } from '../../utils/storybook/factories'
+import FundingOverview from './FundingOverview'
+import type { Meta } from '@storybook/react'
 
 const meta: Meta<typeof FundingOverview> = {
   component: FundingOverview,
@@ -10,21 +10,21 @@ const meta: Meta<typeof FundingOverview> = {
       viewports: [375, 834, 1194, 1280, 1440],
     },
   },
-};
-export default meta;
+}
+export default meta
 
 const CommonArgs = {
-  snapshotOwner: "SES Core Unit",
-  startDate: "2023-05-12T22:52:54.494Z",
-  endDate: "2023-06-14T22:52:54.494Z",
-  sinceDate: new Date("2023-05-12T22:52:54.494Z"),
+  snapshotOwner: 'SES Core Unit',
+  startDate: '2023-05-12T22:52:54.494Z',
+  endDate: '2023-06-14T22:52:54.494Z',
+  sinceDate: new Date('2023-05-12T22:52:54.494Z'),
   balance: {
     initialBalance: 3685648,
     newBalance: -3743328,
     inflow: 300000,
     outflow: -242320,
   },
-};
+}
 const variantsArgs = [
   {
     ...CommonArgs,
@@ -33,38 +33,38 @@ const variantsArgs = [
     ...CommonArgs,
     transactionHistory: [
       new SnapshotAccountTransactionBuilder()
-        .withTimestamp("2023-04-17T11:36:05.188Z")
-        .withTxHash("0xe079d59dbf813d2541a345ef4786cc44a8a")
-        .withCounterParty("0x232b5483e5a5cd22188482")
+        .withTimestamp('2023-04-17T11:36:05.188Z')
+        .withTxHash('0xe079d59dbf813d2541a345ef4786cc44a8a')
+        .withCounterParty('0x232b5483e5a5cd22188482')
         .withAmount(-1153480)
         .build(),
       new SnapshotAccountTransactionBuilder()
-        .withTimestamp("2023-04-15T11:36:05.188Z")
-        .withTxHash("0xe079d59dbf813d2541a345ef4786cc44a8a")
-        .withCounterParty("0x232b5483e5a5cd22188482")
+        .withTimestamp('2023-04-15T11:36:05.188Z')
+        .withTxHash('0xe079d59dbf813d2541a345ef4786cc44a8a')
+        .withCounterParty('0x232b5483e5a5cd22188482')
         .withAmount(153480)
         .build(),
       new SnapshotAccountTransactionBuilder()
-        .withTimestamp("2023-03-28T17:32:05.188Z")
-        .withTxHash("0xe079d59dbf813d2541a345ef4786cc44a8a")
-        .withCounterParty("0x232b5483e5a5cd22188482")
+        .withTimestamp('2023-03-28T17:32:05.188Z')
+        .withTxHash('0xe079d59dbf813d2541a345ef4786cc44a8a')
+        .withCounterParty('0x232b5483e5a5cd22188482')
         .withAmount(-1153480)
         .build(),
       new SnapshotAccountTransactionBuilder()
-        .withTimestamp("2023-03-28T09:45:05.188Z")
-        .withTxHash("0xe079d59dbf813d2541a345ef4786cc44a8a")
-        .withCounterParty("0x232b5483e5a5cd22188482")
+        .withTimestamp('2023-03-28T09:45:05.188Z')
+        .withTxHash('0xe079d59dbf813d2541a345ef4786cc44a8a')
+        .withCounterParty('0x232b5483e5a5cd22188482')
         .withAmount(153480)
         .build(),
     ],
     defaultExpanded: true,
   },
-];
+]
 
 const [[LightMode, DarkMode], [ExpandedLightMode, ExpandedDarkMode]] =
-  createThemeModeVariants(FundingOverview, variantsArgs);
+  createThemeModeVariants(FundingOverview, variantsArgs)
 
-export { LightMode, DarkMode, ExpandedLightMode, ExpandedDarkMode };
+export { LightMode, DarkMode, ExpandedLightMode, ExpandedDarkMode }
 
 // LightMode.parameters = {
 //   figma: {

@@ -1,6 +1,6 @@
-import { Meta } from "@storybook/react";
-import MobileTransaction from "./MobileTransaction";
-import { createThemeModeVariants } from "../../utils/storybook/factories";
+import { Meta } from '@storybook/react'
+import MobileTransaction from './MobileTransaction'
+import { createThemeModeVariants } from '../../utils/storybook/factories'
 
 const meta: Meta<typeof MobileTransaction> = {
   component: MobileTransaction,
@@ -9,36 +9,36 @@ const meta: Meta<typeof MobileTransaction> = {
       viewports: [375],
     },
   },
-};
-export default meta;
+}
+export default meta
 
 const commonArgs = {
-  name: "DSS Blow",
-  date: "2023-04-17T11:36:54.494Z",
-  txHash: "0xe079d59dbf813d2541a345ef4786cc44a8a",
-  counterPartyName: "Auditor Wallet",
-  counterPartyAddress: "0x232b5483e5a5cd22188482",
+  name: 'DSS Blow',
+  date: '2023-04-17T11:36:54.494Z',
+  txHash: '0xe079d59dbf813d2541a345ef4786cc44a8a',
+  counterPartyName: 'Auditor Wallet',
+  counterPartyAddress: '0x232b5483e5a5cd22188482',
   amount: 1153480,
-};
+}
 const variantsArgs = [
   { ...commonArgs },
   {
     ...commonArgs,
     defaultExpanded: true,
   },
-];
+]
 
 const [
   [CollapsedLightMode, CollapsedDarkMode],
   [ExpandedLightMode, ExpandedDarkMode],
-] = createThemeModeVariants(MobileTransaction, variantsArgs);
+] = createThemeModeVariants(MobileTransaction, variantsArgs)
 
 export {
   CollapsedLightMode,
   CollapsedDarkMode,
   ExpandedLightMode,
   ExpandedDarkMode,
-};
+}
 
 // CollapsedLightMode.parameters = {
 //   figma: {

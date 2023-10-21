@@ -1,16 +1,14 @@
-import lightTheme from "../../../styles/theme/light";
-import { isBorder } from "./types";
-import type { Border, BorderConfig, GenericCell, CellPadding } from "./types";
+import lightTheme from '../../../styles/theme/light'
+import { isBorder } from './types'
+import type { Border, BorderConfig, GenericCell, CellPadding } from './types'
 
 const getBorderValue = (border: Border | boolean, isLight: boolean) => {
-  const defaultWidth = 1;
-  const defaultColor = isLight ? "#D4D9E1" : "#405361";
-  const defaultStyle = "solid";
+  const defaultWidth = 1
+  const defaultColor = isLight ? '#D4D9E1' : '#405361'
+  const defaultStyle = 'solid'
 
-  if (typeof border === "boolean") {
-    return border
-      ? `${defaultWidth}px ${defaultStyle} ${defaultColor}`
-      : "none";
+  if (typeof border === 'boolean') {
+    return border ? `${defaultWidth}px ${defaultStyle} ${defaultColor}` : 'none'
   }
 
   const { color, width, style } = {
@@ -18,10 +16,10 @@ const getBorderValue = (border: Border | boolean, isLight: boolean) => {
     width: defaultWidth,
     style: defaultStyle,
     ...border,
-  };
+  }
 
-  return `${width}${typeof width === "string" ? "" : "px"} ${style} ${color}`;
-};
+  return `${width}${typeof width === 'string' ? '' : 'px'} ${style} ${color}`
+}
 
 export const buildBorderStyles = (
   borderConfig: BorderConfig | Border = {},
@@ -30,7 +28,7 @@ export const buildBorderStyles = (
   if (isBorder(borderConfig)) {
     return {
       border: getBorderValue(borderConfig, isLight),
-    };
+    }
   }
 
   return {
@@ -46,20 +44,20 @@ export const buildBorderStyles = (
     ...(borderConfig.left && {
       left: getBorderValue(borderConfig.left, isLight),
     }),
-  };
-};
+  }
+}
 
 export const buildWidthStyles = (
-  width: GenericCell["width"]
+  width: GenericCell['width']
 ): React.CSSProperties => {
   if (!width) {
-    return {};
+    return {}
   }
 
-  if (typeof width === "string" || typeof width === "number") {
+  if (typeof width === 'string' || typeof width === 'number') {
     return {
       width,
-    };
+    }
   }
 
   return {
@@ -67,44 +65,44 @@ export const buildWidthStyles = (
       width: width.mobile_375,
     }),
     ...(width.table_834 && {
-      [lightTheme.breakpoints.up("table_834")]: {
+      [lightTheme.breakpoints.up('table_834')]: {
         width: width.table_834,
       },
     }),
     ...(width.desktop_1194 && {
-      [lightTheme.breakpoints.up("desktop_1194")]: {
+      [lightTheme.breakpoints.up('desktop_1194')]: {
         width: width.desktop_1194,
       },
     }),
     ...(width.desktop_1280 && {
-      [lightTheme.breakpoints.up("desktop_1280")]: {
+      [lightTheme.breakpoints.up('desktop_1280')]: {
         width: width.desktop_1280,
       },
     }),
     ...(width.desktop_1440 && {
-      [lightTheme.breakpoints.up("desktop_1440")]: {
+      [lightTheme.breakpoints.up('desktop_1440')]: {
         width: width.desktop_1440,
       },
     }),
     ...(width.desktop_1920 && {
-      [lightTheme.breakpoints.up("desktop_1920")]: {
+      [lightTheme.breakpoints.up('desktop_1920')]: {
         width: width.desktop_1920,
       },
     }),
-  };
-};
+  }
+}
 
 export const buildPaddingStyles = (
   padding?: CellPadding
 ): React.CSSProperties => {
   if (!padding) {
-    return {};
+    return {}
   }
 
-  if (typeof padding === "string" || typeof padding === "number") {
+  if (typeof padding === 'string' || typeof padding === 'number') {
     return {
       padding,
-    };
+    }
   }
 
   return {
@@ -112,29 +110,29 @@ export const buildPaddingStyles = (
       padding: padding.mobile_375,
     }),
     ...(padding.table_834 && {
-      [lightTheme.breakpoints.up("table_834")]: {
+      [lightTheme.breakpoints.up('table_834')]: {
         padding: padding.table_834,
       },
     }),
     ...(padding.desktop_1194 && {
-      [lightTheme.breakpoints.up("desktop_1194")]: {
+      [lightTheme.breakpoints.up('desktop_1194')]: {
         padding: padding.desktop_1194,
       },
     }),
     ...(padding.desktop_1280 && {
-      [lightTheme.breakpoints.up("desktop_1280")]: {
+      [lightTheme.breakpoints.up('desktop_1280')]: {
         padding: padding.desktop_1280,
       },
     }),
     ...(padding.desktop_1440 && {
-      [lightTheme.breakpoints.up("desktop_1440")]: {
+      [lightTheme.breakpoints.up('desktop_1440')]: {
         padding: padding.desktop_1440,
       },
     }),
     ...(padding.desktop_1920 && {
-      [lightTheme.breakpoints.up("desktop_1920")]: {
+      [lightTheme.breakpoints.up('desktop_1920')]: {
         padding: padding.desktop_1920,
       },
     }),
-  };
-};
+  }
+}

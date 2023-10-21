@@ -3,12 +3,12 @@ import {
   Snapshots,
   Token,
   UIReservesData,
-} from "../types";
+} from '../types'
 
 export const transactionSort = (
   a: SnapshotAccountTransaction,
   b: SnapshotAccountTransaction
-) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime();
+) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
 
 export const getReserveAccounts = (
   snapshot: Snapshots,
@@ -22,7 +22,7 @@ export const getReserveAccounts = (
       account.groupAccountId === groupId &&
       account.upstreamAccountId === upstreamId &&
       !!account.offChain === isOffChain
-  )?.[0];
+  )?.[0]
 
   return snapshot.snapshotAccount
     .filter((account) => account.groupAccountId === accounts?.id)
@@ -55,5 +55,5 @@ export const getReserveAccounts = (
     )
     .sort(
       (a, b) => parseInt(b.upstreamAccountId) - parseInt(a.upstreamAccountId)
-    );
-};
+    )
+}

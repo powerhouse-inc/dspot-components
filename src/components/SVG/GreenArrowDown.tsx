@@ -1,12 +1,23 @@
-import * as React from 'react';
+import * as React from 'react'
 
 interface Props {
-  width?: number;
-  height?: number;
+  width?: number
+  height?: number
 }
 
-const GreenArrowDown: React.FC<Props> = ({ height = 16, width = 16, ...props }) => (
-  <svg width={width} height={height} {...props} viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+const GreenArrowDown: React.FC<Props> = ({
+  height = 16,
+  width = 16,
+  ...props
+}) => (
+  <svg
+    width={width}
+    height={height}
+    {...props}
+    viewBox="0 0 16 17"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <path
       opacity="0.3"
       fillRule="evenodd"
@@ -15,6 +26,6 @@ const GreenArrowDown: React.FC<Props> = ({ height = 16, width = 16, ...props }) 
       fill="#1AAB9B"
     />
   </svg>
-);
+)
 
-export default GreenArrowDown;
+export default GreenArrowDown

@@ -1,10 +1,10 @@
-import * as React from "react";
-import { useThemeContext } from "../../context/ThemeContext";
+import * as React from 'react'
+import { useThemeContext } from '../../context/ThemeContext'
 
 interface Props {
-  width?: number;
-  height?: number;
-  asSkeleton?: boolean;
+  width?: number
+  height?: number
+  asSkeleton?: boolean
 }
 
 const EqualSign: React.FC<Props> = ({
@@ -13,10 +13,10 @@ const EqualSign: React.FC<Props> = ({
   asSkeleton = false,
   ...props
 }) => {
-  const { isLight } = useThemeContext();
-  let fill = isLight ? "#ADAFD4" : "#48495F";
+  const { isLight } = useThemeContext()
+  let fill = isLight ? '#ADAFD4' : '#48495F'
   if (asSkeleton) {
-    fill = isLight ? "#ECF1F3" : "#31424E";
+    fill = isLight ? '#ECF1F3' : '#31424E'
   }
 
   return (
@@ -45,7 +45,7 @@ const EqualSign: React.FC<Props> = ({
         fill={fill}
       />
     </svg>
-  );
-};
+  )
+}
 
-export default EqualSign;
+export default EqualSign

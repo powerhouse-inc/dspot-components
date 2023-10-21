@@ -1,24 +1,24 @@
-import type { Meta } from "@storybook/react";
-import ReserveCard from "./ReserveCard";
-import { SnapshotAccountBalanceBuilder } from "../../builders/accountSnapshot/snapshotAccountBalanceBuilder";
-import { SnapshotAccountBuilder } from "../../builders/accountSnapshot/accountSnapshotBuilder";
-import { SnapshotAccountTransactionBuilder } from "../../builders/accountSnapshot/snapshotAccountTransactionBuilder";
-import { Token } from "../../types";
-import { createThemeModeVariants } from "../../utils/storybook/factories";
+import type { Meta } from '@storybook/react'
+import ReserveCard from './ReserveCard'
+import { SnapshotAccountBalanceBuilder } from '../../builders/accountSnapshot/snapshotAccountBalanceBuilder'
+import { SnapshotAccountBuilder } from '../../builders/accountSnapshot/accountSnapshotBuilder'
+import { SnapshotAccountTransactionBuilder } from '../../builders/accountSnapshot/snapshotAccountTransactionBuilder'
+import { Token } from '../../types'
+import { createThemeModeVariants } from '../../utils/storybook/factories'
 
 const meta: Meta<typeof ReserveCard> = {
   component: ReserveCard,
-};
+}
 
-export default meta;
+export default meta
 
 const variantArgs = [
   {
     account: new SnapshotAccountBuilder()
-      .withId("1")
-      .withAccountLabel("Auditor")
-      .withAccountAddress("0x232b6335224ae8482")
-      .withAccountType("singular")
+      .withId('1')
+      .withAccountLabel('Auditor')
+      .withAccountAddress('0x232b6335224ae8482')
+      .withAccountType('singular')
       .addSnapshotAccountBalance(
         new SnapshotAccountBalanceBuilder()
           .withInitialBalance(500000)
@@ -30,35 +30,35 @@ const variantArgs = [
       .addSnapshotAccountTransaction(
         new SnapshotAccountTransactionBuilder()
           .withAmount(300000)
-          .withCounterParty("0x232b56628482")
-          .withCounterPartyName("DSS Vest")
-          .withTimestamp("2023-03-29T14:45:00Z")
-          .withToken("DAI")
-          .withTxHash("0xe079d59dbf813d54875aec552a")
-          .withTxLabel("Top up (Internal)")
+          .withCounterParty('0x232b56628482')
+          .withCounterPartyName('DSS Vest')
+          .withTimestamp('2023-03-29T14:45:00Z')
+          .withToken('DAI')
+          .withTxHash('0xe079d59dbf813d54875aec552a')
+          .withTxLabel('Top up (Internal)')
           .build()
       )
       .addSnapshotAccountTransaction(
         new SnapshotAccountTransactionBuilder()
           .withAmount(-250000)
-          .withCounterParty("0x232b56628482")
-          .withCounterPartyName("Operational Wallet")
-          .withTimestamp("2023-03-28T11:41:00Z")
-          .withToken("DAI")
-          .withTxHash("0xe079d59dbf813d54875aec552a")
-          .withTxLabel("Top up")
+          .withCounterParty('0x232b56628482')
+          .withCounterPartyName('Operational Wallet')
+          .withTimestamp('2023-03-28T11:41:00Z')
+          .withToken('DAI')
+          .withTxHash('0xe079d59dbf813d54875aec552a')
+          .withTxLabel('Top up')
           .build()
       )
       .build(),
-    currency: "DAI" as Token,
+    currency: 'DAI' as Token,
     defaultExpanded: true,
   },
   {
     account: {
       ...new SnapshotAccountBuilder()
-        .withId("1")
-        .withAccountLabel("DSS Vest")
-        .withAccountType("group")
+        .withId('1')
+        .withAccountLabel('DSS Vest')
+        .withAccountType('group')
         .addSnapshotAccountBalance(
           new SnapshotAccountBalanceBuilder()
             .withInitialBalance(100000)
@@ -71,10 +71,10 @@ const variantArgs = [
         .build(),
       children: [
         new SnapshotAccountBuilder()
-          .withId("2")
-          .withAccountLabel("Stream #13")
-          .withAccountAddress("0x232b5454ae48482")
-          .withAccountType("singular")
+          .withId('2')
+          .withAccountLabel('Stream #13')
+          .withAccountAddress('0x232b5454ae48482')
+          .withAccountType('singular')
           .addSnapshotAccountBalance(
             new SnapshotAccountBalanceBuilder()
               .withInitialBalance(153480)
@@ -86,31 +86,31 @@ const variantArgs = [
           .addSnapshotAccountTransaction(
             new SnapshotAccountTransactionBuilder()
               .withAmount(300000)
-              .withCounterParty("0x232b56628482")
-              .withCounterPartyName("Maker Protocol")
-              .withTimestamp("2023-04-17T11:36:00Z")
-              .withToken("DAI")
-              .withTxHash("0xe079d59dbf813d54875aec552a")
-              .withTxLabel("Top up (Internal)")
+              .withCounterParty('0x232b56628482')
+              .withCounterPartyName('Maker Protocol')
+              .withTimestamp('2023-04-17T11:36:00Z')
+              .withToken('DAI')
+              .withTxHash('0xe079d59dbf813d54875aec552a')
+              .withTxLabel('Top up (Internal)')
               .build()
           )
           .addSnapshotAccountTransaction(
             new SnapshotAccountTransactionBuilder()
               .withAmount(-300000)
-              .withCounterParty("0x232b56628482")
-              .withCounterPartyName("Auditor Wallet")
-              .withTimestamp("2023-04-15T10:05:00Z")
-              .withToken("DAI")
-              .withTxHash("0xe079d59dbf813d54875aec552a")
-              .withTxLabel("Top up")
+              .withCounterParty('0x232b56628482')
+              .withCounterPartyName('Auditor Wallet')
+              .withTimestamp('2023-04-15T10:05:00Z')
+              .withToken('DAI')
+              .withTxHash('0xe079d59dbf813d54875aec552a')
+              .withTxLabel('Top up')
               .build()
           )
           .build(),
         new SnapshotAccountBuilder()
-          .withId("2")
-          .withAccountLabel("Stream #14")
-          .withAccountAddress("0x232b5454ae48482")
-          .withAccountType("singular")
+          .withId('2')
+          .withAccountLabel('Stream #14')
+          .withAccountAddress('0x232b5454ae48482')
+          .withAccountType('singular')
           .addSnapshotAccountBalance(
             new SnapshotAccountBalanceBuilder()
               .withInitialBalance(153480)
@@ -122,43 +122,43 @@ const variantArgs = [
           .addSnapshotAccountTransaction(
             new SnapshotAccountTransactionBuilder()
               .withAmount(300000)
-              .withCounterParty("0x232b56628482")
-              .withCounterPartyName("Maker Protocol")
-              .withTimestamp("2023-03-28T17:32:00Z")
-              .withToken("DAI")
-              .withTxHash("0xe079d59dbf813d54875aec552a")
-              .withTxLabel("Top up (Internal)")
+              .withCounterParty('0x232b56628482')
+              .withCounterPartyName('Maker Protocol')
+              .withTimestamp('2023-03-28T17:32:00Z')
+              .withToken('DAI')
+              .withTxHash('0xe079d59dbf813d54875aec552a')
+              .withTxLabel('Top up (Internal)')
               .build()
           )
           .addSnapshotAccountTransaction(
             new SnapshotAccountTransactionBuilder()
               .withAmount(-300000)
-              .withCounterParty("0x232b56628482")
-              .withCounterPartyName("Auditor Wallet")
-              .withTimestamp("2023-03-28T09:45:00Z")
-              .withToken("DAI")
-              .withTxHash("0xe079d59dbf813d54875aec552a")
-              .withTxLabel("Top up")
+              .withCounterParty('0x232b56628482')
+              .withCounterPartyName('Auditor Wallet')
+              .withTimestamp('2023-03-28T09:45:00Z')
+              .withToken('DAI')
+              .withTxHash('0xe079d59dbf813d54875aec552a')
+              .withTxLabel('Top up')
               .build()
           )
           .build(),
       ],
     },
-    currency: "DAI" as Token,
+    currency: 'DAI' as Token,
     defaultExpanded: true,
   },
-];
+]
 const [
   [WithSingularLightMode, WithSingularDarkMode],
   [WithGroupLightMode, WithGroupDarkMode],
-] = createThemeModeVariants(ReserveCard, variantArgs);
+] = createThemeModeVariants(ReserveCard, variantArgs)
 
 export {
   WithSingularLightMode,
   WithSingularDarkMode,
   WithGroupLightMode,
   WithGroupDarkMode,
-};
+}
 
 // WithSingularLightMode.parameters = {
 //   figma: {

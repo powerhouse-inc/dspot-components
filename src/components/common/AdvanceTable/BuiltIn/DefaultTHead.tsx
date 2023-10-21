@@ -1,5 +1,7 @@
-import React from 'react';
+import React from 'react'
 
-const DefaultTHead: React.FC<React.PropsWithChildren> = ({ children }) => <thead>{children}</thead>;
+const DefaultTHead: React.FC<React.PropsWithChildren> = ({ children }) => (
+  <thead>{children}</thead>
+)
 
-export default DefaultTHead;
+export default DefaultTHead

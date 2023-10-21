@@ -3,58 +3,58 @@ import {
   SnapshotAccount,
   SnapshotAccountBalance,
   SnapshotAccountTransaction,
-} from "../../types";
+} from '../../types'
 
 export class SnapshotAccountBuilder {
-  private readonly _snapshotAccount: SnapshotAccount;
+  private readonly _snapshotAccount: SnapshotAccount
 
   constructor() {
     this._snapshotAccount = {
-      id: "",
-      accountLabel: "",
-      accountType: "singular",
-      accountAddress: "",
-      groupAccountId: "",
-      upstreamAccountId: "",
+      id: '',
+      accountLabel: '',
+      accountType: 'singular',
+      accountAddress: '',
+      groupAccountId: '',
+      upstreamAccountId: '',
       offChain: null,
       snapshotAccountTransaction: [] as SnapshotAccountTransaction[],
       snapshotAccountBalance: [] as SnapshotAccountBalance[],
-    };
+    }
   }
 
   withId(id: string): SnapshotAccountBuilder {
-    this._snapshotAccount.id = id;
-    return this;
+    this._snapshotAccount.id = id
+    return this
   }
 
   withAccountLabel(accountLabel: string): SnapshotAccountBuilder {
-    this._snapshotAccount.accountLabel = accountLabel;
-    return this;
+    this._snapshotAccount.accountLabel = accountLabel
+    return this
   }
 
   withAccountType(accountType: AccountType): SnapshotAccountBuilder {
-    this._snapshotAccount.accountType = accountType;
-    return this;
+    this._snapshotAccount.accountType = accountType
+    return this
   }
 
   withAccountAddress(accountAddress: string): SnapshotAccountBuilder {
-    this._snapshotAccount.accountAddress = accountAddress;
-    return this;
+    this._snapshotAccount.accountAddress = accountAddress
+    return this
   }
 
   withGroupAccountId(groupAccountId: string): SnapshotAccountBuilder {
-    this._snapshotAccount.groupAccountId = groupAccountId;
-    return this;
+    this._snapshotAccount.groupAccountId = groupAccountId
+    return this
   }
 
   withUpstreamAccountId(upstreamAccountId: string): SnapshotAccountBuilder {
-    this._snapshotAccount.upstreamAccountId = upstreamAccountId;
-    return this;
+    this._snapshotAccount.upstreamAccountId = upstreamAccountId
+    return this
   }
 
   withOffChain(offChain: boolean | null): SnapshotAccountBuilder {
-    this._snapshotAccount.offChain = offChain;
-    return this;
+    this._snapshotAccount.offChain = offChain
+    return this
   }
 
   addSnapshotAccountTransaction(
@@ -62,18 +62,18 @@ export class SnapshotAccountBuilder {
   ): SnapshotAccountBuilder {
     this._snapshotAccount.snapshotAccountTransaction.push(
       snapshotAccountTransaction
-    );
-    return this;
+    )
+    return this
   }
 
   addSnapshotAccountBalance(
     snapshotAccountBalance: SnapshotAccountBalance
   ): SnapshotAccountBuilder {
-    this._snapshotAccount.snapshotAccountBalance.push(snapshotAccountBalance);
-    return this;
+    this._snapshotAccount.snapshotAccountBalance.push(snapshotAccountBalance)
+    return this
   }
 
   build(): SnapshotAccount {
-    return this._snapshotAccount;
+    return this._snapshotAccount
   }
 }

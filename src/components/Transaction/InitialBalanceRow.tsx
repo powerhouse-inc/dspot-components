@@ -1,16 +1,16 @@
-import styled from "@emotion/styled";
-import React from "react";
-import { useThemeContext } from "../../context/ThemeContext";
-import { usLocalizedNumber } from "../../utils/humanization";
-import { WithIsLight } from "../../utils/typesHelpers";
-import lightTheme from "../../styles/theme/light";
+import styled from '@emotion/styled'
+import React from 'react'
+import { useThemeContext } from '../../context/ThemeContext'
+import { usLocalizedNumber } from '../../utils/humanization'
+import { WithIsLight } from '../../utils/typesHelpers'
+import lightTheme from '../../styles/theme/light'
 
 interface InitialBalanceRow {
-  initialBalance: number;
+  initialBalance: number
 }
 
 const InitialBalanceRow: React.FC<InitialBalanceRow> = ({ initialBalance }) => {
-  const { isLight } = useThemeContext();
+  const { isLight } = useThemeContext()
   return (
     <Wrapper isLight={isLight}>
       <Title isLight={isLight}>Initial Balance</Title>
@@ -19,80 +19,80 @@ const InitialBalanceRow: React.FC<InitialBalanceRow> = ({ initialBalance }) => {
         <Currency isLight={isLight}>DAI</Currency>
       </Amount>
     </Wrapper>
-  );
-};
+  )
+}
 
-export default InitialBalanceRow;
+export default InitialBalanceRow
 
 const Wrapper = styled.div<WithIsLight>(({ isLight }) => ({
-  display: "none",
-  flexDirection: "column",
-  alignItems: "flex-end",
-  justifyContent: "center",
+  display: 'none',
+  flexDirection: 'column',
+  alignItems: 'flex-end',
+  justifyContent: 'center',
   gap: 8,
-  padding: "21px 32px 13px 20px",
+  padding: '21px 32px 13px 20px',
 
-  [lightTheme.breakpoints.up("table_834")]: {
-    display: "flex",
+  [lightTheme.breakpoints.up('table_834')]: {
+    display: 'flex',
   },
 
-  [lightTheme.breakpoints.up("desktop_1194")]: {
-    padding: "16px 56px 14px 20px",
+  [lightTheme.breakpoints.up('desktop_1194')]: {
+    padding: '16px 56px 14px 20px',
   },
 
-  [lightTheme.breakpoints.up("desktop_1280")]: {
-    padding: "16px 64px 14px 20px",
+  [lightTheme.breakpoints.up('desktop_1280')]: {
+    padding: '16px 64px 14px 20px',
   },
 
-  [lightTheme.breakpoints.up("desktop_1440")]: {
-    padding: "16px 80px 14px 20px",
+  [lightTheme.breakpoints.up('desktop_1440')]: {
+    padding: '16px 80px 14px 20px',
   },
 
-  "&:hover": {
-    background: isLight ? "#F6F8F9" : "#1F2931",
+  '&:hover': {
+    background: isLight ? '#F6F8F9' : '#1F2931',
   },
-}));
+}))
 
 const Title = styled.div<WithIsLight>(({ isLight }) => ({
   fontSize: 11,
-  lineHeight: "13px",
-  color: isLight ? "#546978" : "#708390",
+  lineHeight: '13px',
+  color: isLight ? '#546978' : '#708390',
 
-  [lightTheme.breakpoints.up("desktop_1194")]: {
+  [lightTheme.breakpoints.up('desktop_1194')]: {
     fontSize: 12,
-    lineHeight: "15px",
+    lineHeight: '15px',
   },
-}));
+}))
 
 const Amount = styled.div<WithIsLight>(({ isLight }) => ({
   fontWeight: 700,
-  display: "flex",
-  alignItems: "baseline",
-  justifyContent: "flex-end",
+  display: 'flex',
+  alignItems: 'baseline',
+  justifyContent: 'flex-end',
   gap: 4,
   fontSize: 14,
-  lineHeight: "22px",
-  color: isLight ? "#231536" : "#D2D4EF",
+  lineHeight: '22px',
+  color: isLight ? '#231536' : '#D2D4EF',
 
-  [lightTheme.breakpoints.up("desktop_1194")]: {
+  [lightTheme.breakpoints.up('desktop_1194')]: {
     fontSize: 16,
   },
-}));
+}))
 
 const Currency = styled.span<WithIsLight>(({ isLight }) => ({
   fontWeight: 600,
   fontSize: 12,
-  lineHeight: "15px",
+  lineHeight: '15px',
   letterSpacing: 1,
-  textTransform: "uppercase",
-  color: isLight ? "#9FAFB9" : "#546978",
+  textTransform: 'uppercase',
+  color: isLight ? '#9FAFB9' : '#546978',
 
-  [lightTheme.breakpoints.up("table_834")]: {
-    color: "#9FAFB9",
+  [lightTheme.breakpoints.up('table_834')]: {
+    color: '#9FAFB9',
   },
 
-  [lightTheme.breakpoints.up("desktop_1194")]: {
+  [lightTheme.breakpoints.up('desktop_1194')]: {
     fontSize: 14,
-    lineHeight: "17px",
+    lineHeight: '17px',
   },
-}));
+}))

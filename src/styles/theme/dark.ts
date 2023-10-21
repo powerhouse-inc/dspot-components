@@ -1,4 +1,4 @@
-import { createTheme, responsiveFontSizes } from '@mui/material/styles';
+import { createTheme, responsiveFontSizes } from '@mui/material/styles'
 
 const darkTheme = responsiveFontSizes(
   createTheme({
@@ -14,6 +14,6 @@ const darkTheme = responsiveFontSizes(
       fontFamily: 'Inter, sans-serif',
     },
   })
-);
+)
 
-export default darkTheme;
+export default darkTheme

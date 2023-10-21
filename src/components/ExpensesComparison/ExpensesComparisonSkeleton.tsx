@@ -1,15 +1,15 @@
-import styled from "@emotion/styled";
-import { useMediaQuery } from "@mui/material";
-import React from "react";
-import { BaseSkeleton } from "../BaseSkeleton/BaseSkeleton";
-import ExpensesComparisonRowCardSkeleton from "../Cards/ExpensesComparisonRowCard/ExpensesComparisonRowCardSkeleton";
-import ComparisonTableSkeleton from "./ComparisonTableSkeleton";
-import { useThemeContext } from "../../context/ThemeContext";
-import lightTheme from "../../styles/theme/light";
+import styled from '@emotion/styled'
+import { useMediaQuery } from '@mui/material'
+import React from 'react'
+import { BaseSkeleton } from '../BaseSkeleton/BaseSkeleton'
+import ExpensesComparisonRowCardSkeleton from '../Cards/ExpensesComparisonRowCard/ExpensesComparisonRowCardSkeleton'
+import ComparisonTableSkeleton from './ComparisonTableSkeleton'
+import { useThemeContext } from '../../context/ThemeContext'
+import lightTheme from '../../styles/theme/light'
 
 const ExpensesComparisonSkeleton: React.FC = () => {
-  const { isLight } = useThemeContext();
-  const isMobile = useMediaQuery(lightTheme.breakpoints.down("table_834"));
+  const { isLight } = useThemeContext()
+  const isMobile = useMediaQuery(lightTheme.breakpoints.down('table_834'))
 
   return (
     <div>
@@ -29,67 +29,67 @@ const ExpensesComparisonSkeleton: React.FC = () => {
         <ComparisonTableSkeleton />
       )}
     </div>
-  );
-};
+  )
+}
 
-export default ExpensesComparisonSkeleton;
+export default ExpensesComparisonSkeleton
 
 const TitleContainer = styled.div({
-  display: "flex",
-  flexDirection: "column",
+  display: 'flex',
+  flexDirection: 'column',
   gap: 6,
 
-  [lightTheme.breakpoints.up("table_834")]: {
+  [lightTheme.breakpoints.up('table_834')]: {
     gap: 11,
   },
-});
+})
 
 const TitleLine1Skeleton = styled(BaseSkeleton)({
   maxWidth: 314,
   height: 18,
 
-  [lightTheme.breakpoints.up("table_834")]: {
+  [lightTheme.breakpoints.up('table_834')]: {
     maxWidth: 190,
     height: 21,
   },
 
-  [lightTheme.breakpoints.up("desktop_1194")]: {
+  [lightTheme.breakpoints.up('desktop_1194')]: {
     maxWidth: 248,
   },
-});
+})
 
 const TitleLine2Skeleton = styled(BaseSkeleton)({
   maxWidth: 122,
   height: 17.5,
 
-  [lightTheme.breakpoints.up("table_834")]: {
+  [lightTheme.breakpoints.up('table_834')]: {
     maxWidth: 408,
     height: 14,
   },
-});
+})
 
 const SubtitleContainer = styled.div({
-  display: "flex",
-  flexDirection: "column",
+  display: 'flex',
+  flexDirection: 'column',
   gap: 5.25,
   marginTop: 14.5,
 
-  [lightTheme.breakpoints.up("table_834")]: {
-    display: "none",
+  [lightTheme.breakpoints.up('table_834')]: {
+    display: 'none',
   },
-});
+})
 
 const SubtitleLine1Skeleton = styled(BaseSkeleton)({
   maxWidth: 236,
   height: 12.25,
-});
+})
 
 const SubtitleLine2Skeleton = styled(BaseSkeleton)({
   maxWidth: 210,
   height: 12.25,
-});
+})
 
 const SubtitleLine3Skeleton = styled(BaseSkeleton)({
   maxWidth: 200,
   height: 12.25,
-});
+})

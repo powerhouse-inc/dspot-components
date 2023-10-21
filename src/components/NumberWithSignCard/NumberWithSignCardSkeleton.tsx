@@ -1,28 +1,52 @@
-import styled from '@emotion/styled';
-import React from 'react';
-import { BaseSkeleton } from '../BaseSkeleton/BaseSkeleton';
-import { useThemeContext } from '../../context/ThemeContext';
-import lightTheme from '../../styles/theme/light';
+import styled from '@emotion/styled'
+import React from 'react'
+import { BaseSkeleton } from '../BaseSkeleton/BaseSkeleton'
+import { useThemeContext } from '../../context/ThemeContext'
+import lightTheme from '../../styles/theme/light'
 
 interface NumberWithSignCardSkeletonProps {
-  sign: 'positive' | 'negative';
+  sign: 'positive' | 'negative'
 }
 
-const NumberWithSignCardSkeleton: React.FC<NumberWithSignCardSkeletonProps> = ({ sign }) => {
-  const { isLight } = useThemeContext();
-  const fill = isLight ? '#ECF1F3' : '#31424E';
+const NumberWithSignCardSkeleton: React.FC<NumberWithSignCardSkeletonProps> = ({
+  sign,
+}) => {
+  const { isLight } = useThemeContext()
+  const fill = isLight ? '#ECF1F3' : '#31424E'
 
   return (
     <Container>
       <SignContainer>
         {sign === 'positive' ? (
-          <PlusSVG viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <PlusSVG
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <rect x="10" width="4" height="24" rx="2" fill={fill} />
-            <rect y="14" width="4" height="24" rx="2" transform="rotate(-90 0 14)" fill={fill} />
+            <rect
+              y="14"
+              width="4"
+              height="24"
+              rx="2"
+              transform="rotate(-90 0 14)"
+              fill={fill}
+            />
           </PlusSVG>
         ) : (
-          <MinusSVG viewBox="0 0 24 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect y="4" width="4" height="24" rx="2" transform="rotate(-90 0 4)" fill={fill} />
+          <MinusSVG
+            viewBox="0 0 24 4"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              y="4"
+              width="4"
+              height="24"
+              rx="2"
+              transform="rotate(-90 0 4)"
+              fill={fill}
+            />
           </MinusSVG>
         )}
       </SignContainer>
@@ -34,10 +58,10 @@ const NumberWithSignCardSkeleton: React.FC<NumberWithSignCardSkeletonProps> = ({
         <Caption isLight={isLight} />
       </ValueContainer>
     </Container>
-  );
-};
+  )
+}
 
-export default NumberWithSignCardSkeleton;
+export default NumberWithSignCardSkeleton
 
 const Container = styled.div({
   display: 'flex',
@@ -45,7 +69,7 @@ const Container = styled.div({
   [lightTheme.breakpoints.up('table_834')]: {
     width: '100%',
   },
-});
+})
 
 const SignContainer = styled.div({
   display: 'flex',
@@ -55,7 +79,7 @@ const SignContainer = styled.div({
   [lightTheme.breakpoints.up('desktop_1194')]: {
     marginRight: 8,
   },
-});
+})
 
 const PlusSVG = styled.svg({
   width: 16,
@@ -65,7 +89,7 @@ const PlusSVG = styled.svg({
     width: 24,
     height: 24,
   },
-});
+})
 
 const MinusSVG = styled.svg({
   width: 16,
@@ -75,7 +99,7 @@ const MinusSVG = styled.svg({
     width: 24,
     height: 4,
   },
-});
+})
 
 const ValueContainer = styled.div({
   display: 'flex',
@@ -99,7 +123,7 @@ const ValueContainer = styled.div({
   [lightTheme.breakpoints.up('desktop_1440')]: {
     padding: '10px 32.5px 16px',
   },
-});
+})
 
 const ValueWrapper = styled.div({
   display: 'flex',
@@ -117,7 +141,7 @@ const ValueWrapper = styled.div({
     marginBottom: 12,
     gap: 9,
   },
-});
+})
 
 const Value = styled(BaseSkeleton)({
   width: 73,
@@ -137,7 +161,7 @@ const Value = styled(BaseSkeleton)({
     width: 126,
     height: 26.25,
   },
-});
+})
 
 const Currency = styled(BaseSkeleton)({
   width: 22,
@@ -147,7 +171,7 @@ const Currency = styled(BaseSkeleton)({
     width: 29,
     height: 14,
   },
-});
+})
 
 const Caption = styled(BaseSkeleton)({
   maxWidth: 143,
@@ -157,4 +181,4 @@ const Caption = styled(BaseSkeleton)({
     maxWidth: 150,
     height: 14,
   },
-});
+})

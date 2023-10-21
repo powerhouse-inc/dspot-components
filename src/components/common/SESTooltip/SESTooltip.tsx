@@ -1,19 +1,19 @@
-import { useMediaQuery } from "@mui/material";
-import Tooltip from "@mui/material/Tooltip";
-import classNames from "classnames";
-import merge from "deepmerge";
-import React, { useMemo } from "react";
-import type { TooltipProps } from "@mui/material";
-import { useThemeContext } from "../../../context/ThemeContext";
-import lightTheme from "../../../styles/theme/light";
+import { useMediaQuery } from '@mui/material'
+import Tooltip from '@mui/material/Tooltip'
+import classNames from 'classnames'
+import merge from 'deepmerge'
+import React, { useMemo } from 'react'
+import type { TooltipProps } from '@mui/material'
+import { useThemeContext } from '../../../context/ThemeContext'
+import lightTheme from '../../../styles/theme/light'
 
 export interface SESTooltipProps
-  extends Omit<TooltipProps, "title" | "content"> {
-  content: TooltipProps["title"];
-  enableClickListener?: boolean;
-  borderColor?: React.CSSProperties["color"];
-  fallbackPlacements?: TooltipProps["placement"][];
-  showAsModalBottomSheet?: boolean;
+  extends Omit<TooltipProps, 'title' | 'content'> {
+  content: TooltipProps['title']
+  enableClickListener?: boolean
+  borderColor?: React.CSSProperties['color']
+  fallbackPlacements?: TooltipProps['placement'][]
+  showAsModalBottomSheet?: boolean
 }
 
 const SESTooltip: React.FC<SESTooltipProps> = ({
@@ -26,20 +26,20 @@ const SESTooltip: React.FC<SESTooltipProps> = ({
   showAsModalBottomSheet = false,
   ...props
 }) => {
-  const { isLight } = useThemeContext();
+  const { isLight } = useThemeContext()
   const isMobileResolution = useMediaQuery(
-    lightTheme.breakpoints.down("table_834")
-  );
+    lightTheme.breakpoints.down('table_834')
+  )
   const borderColor =
-    borderColorProp || (isLight === false ? "#231536" : "#D4D9E1");
+    borderColorProp || (isLight === false ? '#231536' : '#D4D9E1')
 
   const [controlledOpen, setControlledOpen] = React.useState(
     props.open ?? enableClickListener ? false : undefined
-  );
+  )
 
   const defaultProps = useMemo<Partial<SESTooltipProps>>(
     () => ({
-      placement: "bottom-end",
+      placement: 'bottom-end',
       open: controlledOpen,
       disableHoverListener: enableClickListener,
       classes: {
@@ -48,13 +48,13 @@ const SESTooltip: React.FC<SESTooltipProps> = ({
       PopperProps: {
         modifiers: [
           {
-            name: "offset",
+            name: 'offset',
             options: {
               offset: props.arrow ? [0, -1] : [0, -5],
             },
           },
           {
-            name: "flip",
+            name: 'flip',
             ...(fallbackPlacements && { options: { fallbackPlacements } }),
           },
         ],
@@ -75,12 +75,12 @@ const SESTooltip: React.FC<SESTooltipProps> = ({
       props.classes?.tooltip,
       fallbackPlacements,
     ]
-  );
+  )
 
   const finalProps = merge(defaultProps, props) as unknown as Omit<
     TooltipProps,
-    "title"
-  >;
+    'title'
+  >
   return (
     <Tooltip title={content} {...finalProps}>
       {enableClickListener
@@ -89,74 +89,74 @@ const SESTooltip: React.FC<SESTooltipProps> = ({
           })
         : children}
     </Tooltip>
-  );
-};
+  )
+}
 
-export default SESTooltip;
+export default SESTooltip
 
 const arrowProps = (
-  borderColor: React.CSSProperties["color"],
+  borderColor: React.CSSProperties['color'],
   isLight = true
 ) => ({
   // using sx to access pseudo-elements
   sx: {
-    "&:before": {
-      boxSizing: "border-box",
+    '&:before': {
+      boxSizing: 'border-box',
       border: `1px solid ${borderColor}`,
-      background: isLight ? "white" : "#000A13",
+      background: isLight ? 'white' : '#000A13',
     },
-    color: isLight ? "white" : "#000A13",
+    color: isLight ? 'white' : '#000A13',
     fontSize: 16,
   },
-});
+})
 
 const tooltipProps = (
-  borderColor: React.CSSProperties["color"],
+  borderColor: React.CSSProperties['color'],
   isLight = true
 ) => ({
   sx: {
-    display: "flex",
-    padding: "16px",
-    alignItems: "center",
+    display: 'flex',
+    padding: '16px',
+    alignItems: 'center',
     gap: 8,
 
     maxWidth: 330,
-    color: isLight ? "#231536" : "#D2D4EF",
-    borderRadius: "6px",
+    color: isLight ? '#231536' : '#D2D4EF',
+    borderRadius: '6px',
     border: `1px solid ${borderColor}`,
 
     fontSize: 14,
-    fontStyle: "normal",
+    fontStyle: 'normal',
     fontWeight: 400,
-    lineHeight: "normal",
+    lineHeight: 'normal',
 
-    background: isLight ? "white" : "#000A13",
+    background: isLight ? 'white' : '#000A13',
     boxShadow: isLight
-      ? "0px 20px 40px rgba(219, 227, 237, 0.4), 0px 1px 3px rgba(190, 190, 190, 0.25)"
-      : "10px 15px 20px 6px rgba(20, 0, 141, 0.1)",
+      ? '0px 20px 40px rgba(219, 227, 237, 0.4), 0px 1px 3px rgba(190, 190, 190, 0.25)'
+      : '10px 15px 20px 6px rgba(20, 0, 141, 0.1)',
 
-    "&.MuiTooltip-tooltipPlacementRight .MuiTooltip-arrow": {
-      margin: "0 -0.95em",
-      scale: "1.81 1",
+    '&.MuiTooltip-tooltipPlacementRight .MuiTooltip-arrow': {
+      margin: '0 -0.95em',
+      scale: '1.81 1',
     },
-    "&.MuiTooltip-tooltipPlacementLeft .MuiTooltip-arrow": {
-      margin: "0 -0.95em",
-      scale: "1.81 1",
+    '&.MuiTooltip-tooltipPlacementLeft .MuiTooltip-arrow': {
+      margin: '0 -0.95em',
+      scale: '1.81 1',
     },
-    "&.MuiTooltip-tooltipPlacementTop .MuiTooltip-arrow": {
-      margin: "-0.95em 0",
-      scale: "1 1.81",
+    '&.MuiTooltip-tooltipPlacementTop .MuiTooltip-arrow': {
+      margin: '-0.95em 0',
+      scale: '1 1.81',
     },
-    "&.MuiTooltip-tooltipPlacementBottom .MuiTooltip-arrow": {
-      margin: "-0.95em 0",
-      scale: "1 1.81",
+    '&.MuiTooltip-tooltipPlacementBottom .MuiTooltip-arrow': {
+      margin: '-0.95em 0',
+      scale: '1 1.81',
     },
 
-    [lightTheme.breakpoints.down("table_834")]: {
+    [lightTheme.breakpoints.down('table_834')]: {
       // prevent the tooltip to be too close to the windows edge
       maxWidth: 343,
-      marginRight: "16px",
-      marginLeft: "16px",
+      marginRight: '16px',
+      marginLeft: '16px',
     },
   },
-});
+})
